@@ -1,0 +1,26 @@
+body{
+    background-color: lightgray;
+    margin: 0px;
+}
+.main{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topbar{
+    background-color: #E63E6D;
+    overflow: hidden;
+}
+.topbar a{
+    float: left;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 26px;
+    text-decoration: none;
+    font-size: 26px;
+}
+.topbar img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    margin: auto;
+}
