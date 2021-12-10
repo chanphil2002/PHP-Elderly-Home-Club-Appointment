@@ -9,7 +9,7 @@
 
         .navbar {
         overflow: hidden;
-        background-color: #333;
+        background-color: #E63E6D;
         position: fixed;
         top: 0;
         width: 100%;
@@ -30,6 +30,11 @@
         background: #ddd;
         color: black;
 }
+        .main {
+        padding: 16px;
+        margin-top: 30px;
+        height: 1500px; /* Used in this example to enable scrolling */
+        }
 
         .paragraph {
             position: absolute;
@@ -56,7 +61,8 @@
         <a href="#incomingrequest">Incoming Request</a>
         <a href="#registration">Registration</a>
         <a href="#manageprofile">Manage Profile</a>
-    </div><br><br><br><br><br>
+    </div>
+    <div class="main"><br><br><br>
     <h1>Add Student</h1>
     <h2>Please fill in all * required field and double check before submitting the registration form<h2>
     <form action="" method="post">
@@ -97,3 +103,4 @@
         <tr>
              <td><input type="submit" name="txtSubmit"></td>
             </tr>
+    </div>
