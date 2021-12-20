@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: #f3f3f3;
     margin: 0px;
     padding-top: 108.33px
 }
@@ -8,7 +8,7 @@ body{
 }
 .navbar {
     overflow: hidden;
-    background-color: #E63E6D;
+    background-color: #FF9999;
     position: fixed;
     top: 0;
     width: 100%;
@@ -28,49 +28,106 @@ body{
 .navbar a:hover {
     background: #ddd;
     color: black;
-}        
-
-.sidebar{
-    background-color: whitesmoke;
-    position: relative;
-    width: 300px;
-    height: 86.5vh;
-    left: 189px;
 }
+
+
+.wrapper{
+    display: flex;
+    border-radius: 20px;
+    margin: 10px;
+}
+.sidebar{
+    background-image: linear-gradient(#ff9898, #ffc7c7);
+    position: relative;
+    width: 335px;
+    height: 600px;
+    margin-left: 225px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+}
+
 .sidebar .profile{
     margin-bottom: 30px;
     text-align: center;
 }
+
 .sidebar .profile img{
     padding-top: 10px;
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin: 0 auto;
 }
-.sidebar .profile h3{
-    color: darkgrey;
+
+.sidebar .profile h2{
+    color: #FEE3EC;
     margin: 10px 0 5px;
+    padding: 5px;
 }
+
 .sidebar ul{    
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .sidebar ul li a{
     display: block;
     padding: 13px 0;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(255, 143, 143);
     color: black;
     font-size: 30px;
     position: relative;
     text-decoration: none;
     text-align: center;
 }
+
 .sidebar ul li a:hover,
 .sidebar ul li a.active{
     background-color: #F8584D;
     color: white;
 }
+
+.card_body{
+    flex-grow: 100;
+    margin-right: 225px;
+    background: #fff;
+    padding: 30px 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;   
+}
+
+.card_body .info h1{
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.card_body .info .info_data{
+    display: flex; 
+}
+
+.card_body .info .info_data .data{
+    width: 300px;
+}
+.card_body .info .info_data .data h3{
+    color: #353c4e;
+    margin-bottom: 5px;
+    padding-left: 40px;
+}
+
+.card_body .info .info_data .data p{
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #919aa3;
+    padding-left: 40px;
+}
+
+
 
