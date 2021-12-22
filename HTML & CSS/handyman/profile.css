@@ -117,13 +117,13 @@ body{
     height: 70px;   
 }
 
-.card_body .info_data .data h3{
+.card_body .info .info_data .data h3{
     color: #353c4e;
     margin-bottom: 5px;
     display: table;
 }
 
-.card_body .info_data .data p{
+.card_body .info .info_data .data p{
     font-size: 15px;
     margin-bottom: 10px;
     color: #919aa3;
