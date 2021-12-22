@@ -96,7 +96,7 @@ body{
     background: #fff;
     padding: 30px 25px;
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;   
+    border-bottom-right-radius: 5px;  
 }
 
 .card_body .info h1{
@@ -112,13 +112,15 @@ body{
 
 .card_body .info .info_data{
     display: flex; 
-    justify-content: space-evenly;    
+    justify-content: space-evenly;
+    width: 500px;
+    padding-left: 20px;    
 }
 
-.card_body .info_data .data h4{
+.card_body .info_data .data h3{
     color: #353c4e;
     margin-bottom: 5px;
-    padding-left: 40px;
+    display: inline-block;
 }
 
 .card_body .info_data .data p{
