@@ -115,10 +115,7 @@ body{
     justify-content: space-evenly;    
 }
 
-.card_body .info .info_data .data{
-    width: 300px;
-}
-.card_body .info .info_data .data h3{
+.card_body .info_data .data h4{
     color: #353c4e;
     margin-bottom: 5px;
     padding-left: 40px;
@@ -128,7 +125,6 @@ body{
     font-size: 15px;
     margin-bottom: 10px;
     color: #919aa3;
-    padding-left: 40px;
 }
 
 .switch {
@@ -152,7 +148,6 @@ body{
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
 }
   
@@ -164,7 +159,6 @@ body{
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
 }
   
