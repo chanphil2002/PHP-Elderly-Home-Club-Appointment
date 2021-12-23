@@ -15,7 +15,6 @@ body{
     height: 108.33px;
     z-index: 1;
 }
-
 .navbar a {
     float: left;
     display: block;
@@ -25,13 +24,12 @@ body{
     text-decoration: none;
     font-size: 17px;
 }
-
 .navbar a:hover {
     background: #ddd;
     color: black;
 }
 
-/* Page Content */
+/* Page Container */
 
 .wrapper{
     display: flex;
@@ -44,19 +42,16 @@ body{
 .sidebar{
     background-image: linear-gradient(#ff9898, #ffc7c7);
     position: relative;
-    width: 335px;
+    width: 300px;
     height: 600px;
     margin-left: 225px;
     border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    
+    border-bottom-left-radius: 15px;    
 }
-
 .sidebar .profile{
     margin-bottom: 30px;
     text-align: center;
 }
-
 .sidebar .profile img{
     padding-top: 10px;
     display: block;
@@ -65,19 +60,16 @@ body{
     border-radius: 50%;
     margin: 0 auto;
 }
-
 .sidebar .profile h3{
     color: #FEE3EC;
     margin: 10px 0 5px;
     padding: 5px;
 }
-
 .sidebar ul{    
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-
 .sidebar ul li a{
     display: block;
     padding: 13px 0;
@@ -88,7 +80,6 @@ body{
     text-decoration: none;
     text-align: center;
 }
-
 .sidebar ul li a:hover,
 .sidebar ul li a.active{
     background-color: #F8584D;
@@ -105,8 +96,7 @@ body{
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;  
 }
-
-.card_body .info h1{
+.info h1{
     margin-bottom: 50px;
     margin-top: 35px;
     padding-bottom: 50px;
@@ -116,21 +106,18 @@ body{
     letter-spacing: 5px;
     text-align: center;
 }
-
-.card_body .info .info_data{
+.info_data{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     height: 70px;   
 }
-
-.card_body .info .info_data .data h3{
+.data h3{
     color: #353c4e;
     margin-bottom: 5px;
     display: table;
 }
-
-.card_body .info .info_data .data p{
+.data p{
     font-size: 15px;
     margin-bottom: 10px;
     color: #919aa3;
@@ -149,7 +136,6 @@ body{
     width: 60px;
     height: 34px;
 }
-
 .switch input {
     opacity: 0;
     width: 0;
@@ -165,8 +151,7 @@ body{
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-}
-  
+}  
 .slider:before {
     position: absolute;
     content: "";
@@ -180,12 +165,10 @@ body{
   
 input:checked + .slider {
     background-color: #2196F3;
-}
-  
+}  
 input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-}
-  
+}  
 input:checked + .slider:before {
     transform: translateX(26px);
 }
@@ -197,10 +180,74 @@ table {
     table-layout: fixed;
     width: 600px;
     height: 350px;
+    margin:auto;
 }
-
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
-    padding: 8px 2px;
+}
+
+/* Timetable Button */
+  
+.button {
+    background-color: white;
+    color: #cc3636;
+    font-size: 1em;
+    padding: 8px 14px;
+    border: 1px solid #750000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.button:hover {
+    background: #cc3636;
+    color: white;
+}
+  
+/* Overlay (When popup shows)  */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+ 
+/* Popup */
+.popup {
+    margin: 200px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+  
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
 }

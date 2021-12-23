@@ -39,6 +39,23 @@
         <div class= "card_body">
             <div class="info">
                 <h1>Lee's Timetable</h1>
+                <!-- poput content -->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2>Appointment Details</h2>
+                        <a class="close" href="#">x</a>
+                        <div class="data">
+                            <h3>Name of Tenant</h3>
+                            <p>Ligma</p>
+                            <h3>Contact Number</h3>
+                            <p>69420</p>
+                            <h3>Type of Repair</h3>
+                            <p>Mental Health</p>
+                            <h3>Reminder for The Agent</h3>
+                            <p style="line-height: 1.5em; height: 3em;">Love Me Dont Go</p>
+                        </div>
+                    </div>
+                </div>
                 <table>
                     <tr>
                         <th></th>
@@ -50,7 +67,7 @@
                     </tr>                    
                     <tr>
                         <th>0900-1000</th>
-                        <td></td>
+                        <td><a class="button" href="#popup1">Occupied</a></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -68,7 +85,7 @@
                         <th>1100-1200</th>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td><a class="button" href="#popup1">Occupied</a></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -118,10 +135,12 @@
     </div>
     
     <script>
+        // For changing active sidebar
         var sidebar = document.querySelector(".sidebar");
         sidebar.addEventListener("click", function(){
         document.querySelector("body").classList.toggle("active");
     })
-    </script>         
+    </script>
+            
 </body>
 </html>
