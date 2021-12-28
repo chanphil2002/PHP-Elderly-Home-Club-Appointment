@@ -1,7 +1,7 @@
 body{
     background-color: #f3f3f3;
     margin: 0px;
-    padding-top: 108.33px
+    padding-top: 140px
 }
 *{
     font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +43,7 @@ body{
     background-image: linear-gradient(#ff9898, #ffc7c7);
     position: relative;
     width: 300px;
-    height: 600px;
+    height: 625px;
     margin-left: 225px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;    
@@ -260,12 +260,14 @@ td, th {
 }
 .tab button {
     background-color: inherit;
+    width: 25%;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 7px;
     transition: 0.3s;
+    font-size: large;
 }
 .tab button:hover {
     background-color: #ddd;
@@ -279,3 +281,4 @@ td, th {
     border: 1px solid #ccc;
     border-top: none;
 }
+
