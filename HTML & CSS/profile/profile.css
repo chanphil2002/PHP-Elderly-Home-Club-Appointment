@@ -279,6 +279,50 @@ td, th {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
-    border-top: none;
+    border-top: none;    
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.tabcontent .a_info {
+    line-height: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 5px;   
+    border-bottom: 1px solid #e0e0e0;
+}
+.tabcontent .a_info h3{
+    font-size: 25px;
+    padding-left: 13px;
+}
+.tabcontent .a_info h4{
+    font-size: 18px;
+    color: #767676;    
+    padding-left: 10px;
+}
+.tabcontent .a_info p{
+    margin-top: -7px;
+}
+.tabcontent .a_info h5,h6{
+    margin-top: -3px;
+    color: #0075FF;
+    font-size: 16px;    
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+.tabcontent .a_info h5:hover + .handyman_info{
+    display: block;
+    color: #9bbadd;
+    cursor: pointer;
 }
 
+.handyman_info{
+    display:none;
+    position: relative;
+    margin: 200px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
