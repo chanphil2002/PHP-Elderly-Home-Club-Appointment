@@ -276,7 +276,7 @@ td, th {
     background-color: #ccc;
 }
 .tabcontent {
-    display: none;
+    display: block;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;    
@@ -284,45 +284,67 @@ td, th {
     overflow: scroll;
     overflow-x: hidden;
 }
-.tabcontent .a_info {
-    line-height: 0px;
-    font-family: 'Courier New', Courier, monospace;
-    padding-left: 5px;   
+.tabcontent .bar_container {
+    display:flex;   
     border-bottom: 1px solid #e0e0e0;
 }
-.tabcontent .a_info h3{
+.tabcontent .bar_container .a_info {
+    line-height: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 5px;
+    display: inline-block;    
+    cursor: pointer;
+}
+.tabcontent .bar_container .a_info h3{
     font-size: 25px;
     padding-left: 13px;
 }
-.tabcontent .a_info h4{
+.tabcontent .bar_container .a_info h4{
     font-size: 18px;
     color: #767676;    
     padding-left: 10px;
 }
-.tabcontent .a_info p{
+.tabcontent .bar_container .a_info p{
     margin-top: -7px;
 }
-.tabcontent .a_info h5,h6{
+.tabcontent .bar_container .a_info h5,h6{
     margin-top: -3px;
     color: #0075FF;
     font-size: 16px;    
     letter-spacing: 1px;
     margin-bottom: 7px;
+    width: 180px;    
 }
-.tabcontent .a_info h5:hover + .handyman_info{
-    display: block;
-    color: #9bbadd;
-    cursor: pointer;
+.tabcontent .bar_container .a_info h5{
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis;
+}
+.tabcontent .bar_container .hh_profile{
+    display: none;
+}
+.tabcontent .bar_container .hh_profile img{
+    display:inline-block;
+    height: 140px;
+    width: 140px;
+    border-radius: 15%;
+    margin-right: 15px;
+}
+.tabcontent .bar_container .hh_profile .hh_info{
+    display: inline-block;
+    line-height: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.handyman_info{
-    display:none;
-    position: relative;
-    margin: 200px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    position: relative;
-    transition: all 5s ease-in-out;
+.tabcontent .bar_container .hh_profile .hh_info h3{
+    color: #721313;
+    font-size: 18px;
+}
+.tabcontent .bar_container .hh_profile .hh_info p{
+    color: #767676;
+    font-size: 18px;
+}
+
+.tabcontent .bar_container .a_info:hover + .hh_profile{
+    display:inline-flex;
 }
