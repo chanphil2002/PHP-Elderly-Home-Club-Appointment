@@ -26,39 +26,47 @@
             </div>
             <ul>
                 <li>
-                    <a href="handyman_profile.html" class="active">My Profile</a>
+                    <a href="handyman_profile.php" >My Profile</a>
                 </li>
                 <li>
-                    <a href="handyman_timetable.html">My Timetable</a>
+                    <a href="handyman_timetable.php">My Timetable</a>
                 </li>
                 <li>
-                    <a href="handyman_notification.html">Notifications</a>
+                    <a href="handyman_notification.php" class="active">Notifications</a>
                 </li>
             </ul>
         </div>  
         <div class= "card_body">
             <div class="info">
-                <h1>My Profile</h1>
+                <h1>Notifications</h1>
+                <br><br>
                 <div class="info_data">
                     <div class="data">
-                        <h3>First Name</h3>
-                        <p>Lee</p>
-                        <h3>Gender</h3>
-                        <p>Male</p>
-                        <h3>Address</h3>
-                        <p style="line-height: 1.5em; height: 3em;">Jalan SS26/6, Taman Mayang Jaya, 473044</p>
-                        <h3>Specialized Skills</h3>
-                        <p>Plumber</p>
+                        <h3>Appointment Reminder</h3>
+                        <p>Notify me 20 minutes before the appointment</p>
+                        <br>
+                        <h3>New Appointment</h3>
+                        <p>Notify me when a task is appointed to me</p>
+                        
                     </div>
                     <div class="data">
-                        <h3>Last Name</h3>
-                        <p>Wei</p>
-                        <h3>Identity Card No.</h3>
-                        <p>012345-78-9999</p>                        
+                        <h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </h3>
+                        <br><br>       
+                        <h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </h3>
                     </div>
                 </div>
             </div>
-        </div>     
-    </div>
+        </div>
+    </div>          
 </body>
 </html>
