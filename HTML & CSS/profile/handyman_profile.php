@@ -46,7 +46,7 @@
                         <h3>Gender</h3>
                         <p>Male</p>
                         <h3>Address</h3>
-                        <p style="line-height: 1.5em; height: 3em;">Jalan SS26/6, Taman Mayang Jaya, 473044</p>
+                        <p><span>Jalan SS26/6, Taman Mayang Jaya, 473044</span></p>
                         <h3>Specialized Skills</h3>
                         <p>Plumber</p>
                     </div>
