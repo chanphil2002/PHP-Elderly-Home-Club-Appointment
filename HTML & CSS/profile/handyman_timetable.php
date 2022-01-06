@@ -26,13 +26,13 @@
             </div>
             <ul>
                 <li>
-                    <a href="handyman_profile.html">My Profile</a>
+                    <a href="handyman_profile.php">My Profile</a>
                 </li>
                 <li>
-                    <a href="handyman_timetable.html" class="active">My Timetable</a>
+                    <a href="handyman_timetable.php" class="active">My Timetable</a>
                 </li>
                 <li>
-                    <a href="handyman_notification.html">Notifications</a>
+                    <a href="handyman_notification.php">Notifications</a>
                 </li>
             </ul>
         </div>  

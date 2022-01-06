@@ -26,13 +26,13 @@
             </div>
             <ul>
                 <li>
-                    <a href="senior_profile.html">My Profile</a>
+                    <a href="senior_profile.php">My Profile</a>
                 </li>
                 <li>
-                    <a href="senior_appointment.html">My Appointment</a>
+                    <a href="senior_appointment.php">My Appointment</a>
                 </li>
                 <li>
-                    <a href="senior_notification.html" class="active">Notifications</a>
+                    <a href="senior_notification.php" class="active">Notifications</a>
                 </li>
             </ul>
         </div>  

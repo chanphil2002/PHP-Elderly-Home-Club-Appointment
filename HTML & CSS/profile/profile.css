@@ -110,8 +110,8 @@ body{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height: 70px;   
 }
+
 .data h3{
     color: #353c4e;
     margin-bottom: 5px;
@@ -123,7 +123,12 @@ body{
     color: #919aa3;
     display: table-cell;
     text-align: left;
-    padding-top: 10px; 
+    padding-top: 10px;
+    width: 300px;
+}
+.data p span{
+    line-height: 1.5em;
+    height: 3em;
 }
 
 /* Toggle Switch For Notification */

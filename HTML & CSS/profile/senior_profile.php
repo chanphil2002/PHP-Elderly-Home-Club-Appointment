@@ -10,6 +10,23 @@
 </head>
 
 <body>
+<?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+        $dbname = "wdt";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE id = '1'");
+        $display = mysqli_fetch_array($result);
+        $conn->close();
+    ?>
     <div class="navbar">
         <a href="#home">Senior Dashboard</a>
         <a href="#timetable">Timetable</a>
@@ -26,13 +43,13 @@
             </div>
             <ul>
                 <li>
-                    <a href="senior_profile.html" class="active">My Profile</a>
+                    <a href="senior_profile.php" class="active">My Profile</a>
                 </li>
                 <li>
-                    <a href="senior_appointment.html">My Appointment</a>
+                    <a href="senior_appointment.php">My Appointment</a>
                 </li>
                 <li>
-                    <a href="senior_notification.html">Notifications</a>
+                    <a href="senior_notification.php">Notifications</a>
                 </li>
             </ul>
         </div>  
@@ -42,17 +59,17 @@
                 <div class="info_data">
                     <div class="data">
                         <h3>First Name</h3>
-                        <p>John</p>
+                        <p><?php echo $display['first_name'] ?></p>
                         <h3>Gender</h3>
-                        <p>Male</p>
+                        <p><?php echo $display['gender'] ?></p>
                         <h3>Address</h3>
-                        <p style="line-height: 1.5em; height: 3em;">Jalan SS26/6, Taman Mayang Jaya, 473044</p>
+                        <p><span>Jalan SS26/6, Taman Ma</span></p>
                     </div>
                     <div class="data">
                         <h3>Last Name</h3>
-                        <p>Smith</p>
+                        <p><?php echo $display['last_name'] ?></p>
                         <h3>Identity Card No.</h3>
-                        <p>012345-78-9999</p>                        
+                        <p><?php echo $display['ic_no'] ?></p>                        
                     </div>
                 </div>
             </div>
@@ -64,6 +81,7 @@
         sidebar.addEventListener("click", function(){
         document.querySelector("body").classList.toggle("active");
     })
-    </script>         
+    </script>
+    
 </body>
 </html>
