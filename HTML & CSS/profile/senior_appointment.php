@@ -64,62 +64,66 @@
             <div class="info">
                 <h1>My Appointments</h1>
                 <div class="tab">
-                    <button class="tablinks" onclick="openTab(event, 'Pending')" id="defaultOpen">Pending</button>
-                    <button class="tablinks" onclick="openTab(event, 'Approved')">Approved</button>
-                    <button class="tablinks" onclick="openTab(event, 'Completed')">Completed</button>                    
-                    <button class="tablinks" onclick="openTab(event, 'Cancelled')">Cancelled</button>
+                    <button class="tablinks" onclick="openTab(event, 'pending')" id="defaultOpen">Pending</button>
+                    <button class="tablinks" onclick="openTab(event, 'approved')">Approved</button>
+                    <button class="tablinks" onclick="openTab(event, 'completed')">Completed</button>                    
+                    <button class="tablinks" onclick="openTab(event, 'cancelled')">Cancelled</button>
                 </div>
-                
-                <?php 
-                $pending = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'pending' GROUP BY time ORDER BY date");
-                while ($pending_rows = mysqli_fetch_assoc($pending)) {
-                foreach ($pending as $value) {                    
-                    echo '<div id="Pending" class="tabcontent">
-                        <div class="a_info">
-                            <h3>' .$value['appointment_id']. '</h3>
-                            <h4>' .$value['service_type']. '</h4>
-                            <p><i class="far fa-calendar-alt fa-fw"></i>' .$value['date'].'</p>
-                            <p><i class="far fa-clock fa-fw"></i>' .$value['time']. '</p>
-                            <h5><i class="far fa-id-badge fa-fw"></i>' .$value['description']. '</h5>                            
-                        </div>            
-                    </div>';}
-                } ?>
-                  
-                <div id="Approved" class="tabcontent">
+                <div id="pending" class="tabcontent">
                     <div class="a_info">
-                        <h3>A001</h3>
-                        <h4>Toilet Repair</h4>
-                        <p><i class="far fa-calendar-alt fa-fw"></i>6th November 2021</p>
-                        <p><i class="far fa-clock fa-fw"></i>10:00 a.m. (GMT+8)</p>
-                        <h5><i class="far fa-id-badge fa-fw"></i>Alepiu</h5>                            
+                        <?php 
+                            $pending = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'pending' GROUP BY time ORDER BY date");
+                            while ($pending_rows = mysqli_fetch_array($pending)) 
+                            {                               
+                                echo "<h3>" . $pending_rows['appointment_id'] . "</h3>";
+                                echo "<h4>" .$pending_rows['service_type'] . "</h4>";
+                                echo "<p><i class='far fa-calendar-alt fa-fw'></i>" . $pending_rows['date'] ."</p>";
+                                echo "<p><i class='far fa-clock fa-fw'></i>" . $pending_rows['time'] . "</p>";
+                                echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $pending_rows['description']. "</h5><hr>";          
+                            }?>
                     </div>
+                </div>
+                <div id="approved" class="tabcontent">
                     <div class="a_info">
-                        <h3>A001</h3>
-                        <h4>Toilet Repair</h4>
-                        <p><i class="far fa-calendar-alt fa-fw"></i>6th November 2021</p>
-                        <p><i class="far fa-clock fa-fw"></i>10:00 a.m. (GMT+8)</p>
-                        <h5><i class="far fa-id-badge fa-fw"></i>Alepiu</h5>                            
-                    </div><div class="a_info">
-                        <h3>A001</h3>
-                        <h4>Toilet Repair</h4>
-                        <p><i class="far fa-calendar-alt fa-fw"></i>6th November 2021</p>
-                        <p><i class="far fa-clock fa-fw"></i>10:00 a.m. (GMT+8)</p>
-                        <h5><i class="far fa-id-badge fa-fw"></i>Alepiu</h5>                            
-                    </div><div class="a_info">
-                        <h3>A001</h3>
-                        <h4>Toilet Repair</h4>
-                        <p><i class="far fa-calendar-alt fa-fw"></i>6th November 2021</p>
-                        <p><i class="far fa-clock fa-fw"></i>10:00 a.m. (GMT+8)</p>
-                        <h5><i class="far fa-id-badge fa-fw"></i>Alepiu</h5>                            
-                    </div>                                                                                          
+                        <?php 
+                            $approved = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
+                            while ($approved_rows = mysqli_fetch_array($approved)) 
+                            {                               
+                                echo "<h3>" . $approved_rows['appointment_id'] . "</h3>";
+                                echo "<h4>" .$approved_rows['service_type'] . "</h4>";
+                                echo "<p><i class='far fa-calendar-alt fa-fw'></i>" . $approved_rows['date'] ."</p>";
+                                echo "<p><i class='far fa-clock fa-fw'></i>" . $approved_rows['time'] . "</p>";
+                                echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $approved_rows['description']. "</h5><hr>";          
+                            }?>                         
+                    </div>                                                                        
+                </div>                  
+                <div id="completed" class="tabcontent">
+                    <div class="a_info">
+                        <?php 
+                            $completed = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'completed' GROUP BY time ORDER BY date");
+                            while ($completed_rows = mysqli_fetch_array($completed)) 
+                            {                               
+                                echo "<h3>" . $completed_rows['appointment_id'] . "</h3>";
+                                echo "<h4>" .$completed_rows['service_type'] . "</h4>";
+                                echo "<p><i class='far fa-calendar-alt fa-fw'></i>" . $completed_rows['date'] ."</p>";
+                                echo "<p><i class='far fa-clock fa-fw'></i>" . $completed_rows['time'] . "</p>";
+                                echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $completed_rows['description']. "</h5><hr>";          
+                            }?>                         
+                    </div>                    
                 </div>
-                  
-                <div id="Completed" class="tabcontent">
-                    
-                </div>
-
-                <div id="Cancelled" class="tabcontent">
-                    
+                <div id="cancelled" class="tabcontent">
+                    <div class="a_info">
+                        <?php 
+                            $cancelled = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'cancelled' GROUP BY time ORDER BY date");
+                            while ($cancelled_rows = mysqli_fetch_array($cancelled)) 
+                            {                               
+                                echo "<h3>" . $cancelled_rows['appointment_id'] . "</h3>";
+                                echo "<h4>" .$cancelled_rows['service_type'] . "</h4>";
+                                echo "<p><i class='far fa-calendar-alt fa-fw'></i>" . $cancelled_rows['date'] ."</p>";
+                                echo "<p><i class='far fa-clock fa-fw'></i>" . $cancelled_rows['time'] . "</p>";
+                                echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $cancelled_rows['description']. "</h5><hr>";          
+                            }?>                         
+                    </div>                    
                 </div>            
             </div>
         </div>

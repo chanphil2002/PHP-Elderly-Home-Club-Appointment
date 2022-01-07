@@ -292,16 +292,16 @@ td, th {
 .tabcontent .a_info {
     line-height: 0px;
     font-family: 'Courier New', Courier, monospace;
-    padding-left: 5px;    
+    padding-left: 5px;
 }
 .tabcontent .a_info h3{
     font-size: 25px;
-    padding-left: 13px;
+    padding-left: 4px;
 }
 .tabcontent .a_info h4{
     font-size: 18px;
     color: #767676;    
-    padding-left: 10px;
+    padding-left: 2px;
 }
 .tabcontent .a_info p{
     margin-top: -7px;
