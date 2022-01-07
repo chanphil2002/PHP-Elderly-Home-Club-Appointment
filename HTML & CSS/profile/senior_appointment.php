@@ -46,7 +46,7 @@
                     <button class="tablinks" onclick="openTab(event, 'Completed')">Completed</button>                    
                     <button class="tablinks" onclick="openTab(event, 'Cancelled')">Cancelled</button>
                 </div>
-
+                
                 <div id="Pending" class="tabcontent">
                     <div class="a_info">
                         <h3>A001</h3>
