@@ -22,7 +22,6 @@
         <div class="sidebar">
             <div class="profile">
                 <img src="profile_pic.png">
-                <h3>Lee Yu Wei</h3>
             </div>
             <ul>
                 <li>

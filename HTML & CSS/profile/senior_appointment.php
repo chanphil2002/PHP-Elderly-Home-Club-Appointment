@@ -23,7 +23,6 @@
         <div class="sidebar">
             <div class="profile">
                 <img src="profile_pic.png">
-                <h3>John Smith</h3>
             </div>
             <ul>
                 <li>
@@ -36,7 +35,31 @@
                     <a href="senior_notification.php">Notifications</a>
                 </li>
             </ul>
-        </div>  
+        </div>
+        <?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+        $dbname = "wdt";
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            echo "not working";
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $approved = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
+        $approved_rows = mysqli_fetch_array($approved);
+
+        $completed = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'completed' GROUP BY time ORDER BY date");
+        $completed_rows = mysqli_fetch_array($completed);
+
+        $cancelled = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'cancelled' GROUP BY time ORDER BY date");
+        $cancelled_rows = mysqli_fetch_array($cancelled);
+    ?>  
         <div class= "card_body">
             <div class="info">
                 <h1>My Appointments</h1>
@@ -47,15 +70,20 @@
                     <button class="tablinks" onclick="openTab(event, 'Cancelled')">Cancelled</button>
                 </div>
                 
-                <div id="Pending" class="tabcontent">
-                    <div class="a_info">
-                        <h3>A001</h3>
-                        <h4>Toilet Repair</h4>
-                        <p><i class="far fa-calendar-alt fa-fw"></i>6th November 2021</p>
-                        <p><i class="far fa-clock fa-fw"></i>10:00 a.m. (GMT+8)</p>
-                        <h5><i class="far fa-id-badge fa-fw"></i>TBC</h5>                            
-                    </div>            
-                </div>
+                <?php 
+                $pending = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'pending' GROUP BY time ORDER BY date");
+                while ($pending_rows = mysqli_fetch_assoc($pending)) {
+                foreach ($pending as $value) {                    
+                    echo '<div id="Pending" class="tabcontent">
+                        <div class="a_info">
+                            <h3>' .$value['appointment_id']. '</h3>
+                            <h4>' .$value['service_type']. '</h4>
+                            <p><i class="far fa-calendar-alt fa-fw"></i>' .$value['date'].'</p>
+                            <p><i class="far fa-clock fa-fw"></i>' .$value['time']. '</p>
+                            <h5><i class="far fa-id-badge fa-fw"></i>' .$value['description']. '</h5>                            
+                        </div>            
+                    </div>';}
+                } ?>
                   
                 <div id="Approved" class="tabcontent">
                     <div class="a_info">
