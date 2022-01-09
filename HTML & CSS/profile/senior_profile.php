@@ -53,13 +53,5 @@
             </div>
         </div>     
     </div>
-    
-    <script>
-        var sidebar = document.querySelector(".sidebar");
-        sidebar.addEventListener("click", function(){
-        document.querySelector("body").classList.toggle("active");
-    })
-    </script>
-    
 </body>
 </html>

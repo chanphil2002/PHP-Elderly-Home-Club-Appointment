@@ -37,19 +37,19 @@
             while ($rows = mysqli_fetch_array($result))
             {
                 if (date('w', strtotime($rows['date'])) == 1){
-                    $monday->append($rows);
+                    $monday += $rows;
                 }
                 elseif (date('w', strtotime($rows['date'])) == 2) {
-                    $tuesday->append($rows);
+                    $tuesday += $rows;
                 }
                 elseif (date('w', strtotime($rows['date'])) == 3) {
-                    $wednesday->append($rows);
+                    $wednesday += $rows;
                 }
                 elseif (date('w', strtotime($rows['date'])) == 4) {
-                    $thursday->append($rows);
+                    $thursday += $rows;
                 }
                 elseif (date('w', strtotime($rows['date'])) == 5) {
-                    $friday->append($rows);
+                    $friday += $rows;
                 }
             }
             $result->free()
