@@ -1,3 +1,6 @@
+<?php
+        include 'connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,21 +13,7 @@
 </head>
 
 <body>
-<?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "wdt";
-
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            echo "not working";
-            die("Connection failed: " . $conn->connect_error);
-        }
-
+    <?php
         $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE id = '1'");
         $row = mysqli_fetch_array($result);
         $conn->close();
