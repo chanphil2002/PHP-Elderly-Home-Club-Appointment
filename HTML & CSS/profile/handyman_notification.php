@@ -19,22 +19,10 @@
         <a href="#manageprofile">Manage Profile</a>
     </div>
     <div class="wrapper">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="profile_pic.png">
-            </div>
-            <ul>
-                <li>
-                    <a href="handyman_profile.php" >My Profile</a>
-                </li>
-                <li>
-                    <a href="handyman_timetable.php">My Timetable</a>
-                </li>
-                <li>
-                    <a href="handyman_notification.php" class="active">Notifications</a>
-                </li>
-            </ul>
-        </div>  
+        <?php 
+                $page_id = '6';
+                include 'sidebar.php';
+        ?> 
         <div class= "card_body">
             <div class="info">
                 <h1>Notifications</h1>

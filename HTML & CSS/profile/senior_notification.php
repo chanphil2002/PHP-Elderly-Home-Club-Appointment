@@ -19,22 +19,10 @@
         <a href="#manageprofile">Manage Profile</a>
     </div>
     <div class="wrapper">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="profile_pic.png">
-            </div>
-            <ul>
-                <li>
-                    <a href="senior_profile.php">My Profile</a>
-                </li>
-                <li>
-                    <a href="senior_appointment.php">My Appointment</a>
-                </li>
-                <li>
-                    <a href="senior_notification.php" class="active">Notifications</a>
-                </li>
-            </ul>
-        </div>  
+        <?php 
+                $page_id = '3';
+                include 'sidebar.php';
+        ?>
         <div class= "card_body">
             <div class="info">
                 <h1>Notifications</h1>
