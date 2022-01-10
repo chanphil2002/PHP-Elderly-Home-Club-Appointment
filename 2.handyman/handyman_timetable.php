@@ -1,6 +1,3 @@
-<?php
-        include 'connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +19,7 @@
         <a href="#manageprofile">Manage Profile</a>
     </div>
     <div class="wrapper">
+<<<<<<< HEAD:HTML & CSS/profile/handyman_timetable.php
         <?php
             $page_id = '5';
             include 'sidebar.php';
@@ -68,6 +66,44 @@
         <div class= "card_body">
             <div class="info">
                 <h1>Lee's Timetable</h1>
+=======
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile_pic.png">
+            </div>
+            <ul>
+                <li>
+                    <a href="handyman_profile.php">My Profile</a>
+                </li>
+                <li>
+                    <a href="handyman_timetable.php" class="active">My Timetable</a>
+                </li>
+                <li>
+                    <a href="handyman_notification.php">Notifications</a>
+                </li>
+            </ul>
+        </div>  
+        <div class= "card_body">
+            <div class="info">
+                <h1>Lee's Timetable</h1>
+                <!-- poput content -->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2>Appointment Details</h2>
+                        <a class="close" href="#">x</a>
+                        <div class="data">
+                            <h3>Name of Tenant</h3>
+                            <p>Ligma</p>
+                            <h3>Contact Number</h3>
+                            <p>69420</p>
+                            <h3>Type of Repair</h3>
+                            <p>Mental Health</p>
+                            <h3>Reminder for The Agent</h3>
+                            <p style="line-height: 1.5em; height: 3em;">Love Me Dont Go</p>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 0e403535ede47f6e5242f5b2b7385ce90fccae3f:2.handyman/handyman_timetable.php
                 <table>
                     <tr>
                         <th></th>
@@ -76,6 +112,25 @@
                         <th>Wednesday</th>
                         <th>Thursday</th>
                         <th>Friday</th>
+<<<<<<< HEAD:HTML & CSS/profile/handyman_timetable.php
+=======
+                    </tr>                    
+                    <tr>
+                        <th>0900-1000</th>
+                        <td><a class="button" href="#popup1">Occupied</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> 
+                    <tr>
+                        <th>1000-1100</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+>>>>>>> 0e403535ede47f6e5242f5b2b7385ce90fccae3f:2.handyman/handyman_timetable.php
                     </tr>
                     <tr>
                         <th>09:00-10:00</th>
