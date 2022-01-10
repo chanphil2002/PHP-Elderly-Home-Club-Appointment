@@ -27,56 +27,47 @@
             include 'sidebar.php';
              
             $result = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
-            
-            $monday = array();
-            $tuesday = array();
-            $wednesday = array();
-            $thursday = array();
-            $friday = array();
-            
-            while ($rows = mysqli_fetch_array($result))
+            while ($rows = mysqli_fetch_assoc($result))
             {
-                if (date('w', strtotime($rows['date'])) == 1){
-                    $monday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 2) {
-                    $tuesday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 3) {
-                    $wednesday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 4) {
-                    $thursday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 5) {
-                    $friday += $rows;
-                }
+                $data[] = $rows;
             }
-            $result->free()
+            $days_of_week = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday');
+
+            //popup for appointment details
+            function popup($value, $popup_id) 
+            {
+                echo'<div id="'. $popup_id .'" class="overlay">
+                    <div class="popup">
+                    <h2>Appointment Details</h2>
+                    <a class="close" href="#">x</a>
+                    <div class="data">
+                    <h3>Name of Tenant</h3>
+                    <p>' . $value['appointment_id'] . '<p>
+                    <h3> Type of Repair </h3>
+                    <p>' . $value['appointment_id'] . '</p>
+                    <h3>Reminder for The Agent</h3>
+                    <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
+                    </div>
+                    </div>
+                    </div>';
+            }
+            
+            //function to determine appointment details for table cells
+            function occupy($value, $popup_id, $time, $date)
+            {
+            if (isset($value['time']))
+            {
+                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $date))
+                {
+                    echo '<td><a class="button" href=#'.$date.$popup_id.'>Occupied</a></td>';
+                    popup($value, $date.$popup_id);
+                }            
+            }
+        }
         ?>
         <div class= "card_body">
             <div class="info">
                 <h1>Lee's Timetable</h1>
-                <!-- popup content -->
-                <?php 
-                function popup($value) {
-                    echo'<div id="m1" class="overlay">
-                        <div class="popup">
-                        <h2>Appointment Details</h2>
-                        <a class="close" href="#">x</a>
-                        <div class="data">
-                        <h3>Name of Tenant</h3>
-                        <p>' . $value['appointment_id'] . '<p>
-                        <h3> Type of Repair </h3>
-                        <p>' . $value['appointment_id'] . '</p>
-                        <h3>Reminder for The Agent</h3>
-                        <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
-                        </div>
-                        </div>
-                        </div>';
-                }
-                popup($monday);
-                ?>
                 <table>
                     <tr>
                         <th></th>
@@ -85,71 +76,103 @@
                         <th>Wednesday</th>
                         <th>Thursday</th>
                         <th>Friday</th>
-                    </tr>                    
-                    <tr>
-                        <th>0900-1000</th>
-                            <td><a class="button" href="#m1">Occupied</a></td>
-                            <td><a class="button" href="#m2">Occupied</a></td>
-                            <td><a class="button" href="#m3">Occupied</a></td>
-                            <td><a class="button" href="#m4">Occupied</a></td>
-                            <td><a class="button" href="#m5">Occupied</a></td>
-                    </tr> 
-                    <tr>
-                        <th>1000-1100</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <th>1100-1200</th>
-                        <td></td>
-                        <td></td>
-                        <td><a class="button" href="#popup1">Occupied</a></td>
-                        <td></td>
-                        <td></td>
+                        <th>09:00-10:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days) 
+                        {
+                            occupy($row, "1", "09:00", $days);
+                        }
+                    }
+                    ?>
                     </tr>
                     <tr>
-                        <th>1200-1300</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>10:00-11:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "2", "10:00", $days);
+                        }
+                    }
+                    ?>
                     </tr>
                     <tr>
-                        <th>1300-1400</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>11:00-12:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "3", "11:00", $days);
+                        }
+                    }
+                    ?>
                     </tr>
                     <tr>
-                        <th>1400-1500</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>12:00-13:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "4", "12:00", $days);
+                        }
+                    }
+                    ?>
                     </tr>
                     <tr>
-                        <th>1500-1600</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>13:00-14:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "5", "13:00", $days);
+                        }
+                    }
+                    ?>
                     </tr>
                     <tr>
-                        <th>1600-1700</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>                  
+                        <th>14:00-15:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "6", "14:00", $days);
+                        }
+                    }
+                    ?>
+                    </tr>
+                    <tr>
+                        <th>15:00-16:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "7", "15:00", $days);
+                        }
+                    }
+                    ?>
+                    </tr>
+                    <tr>
+                        <th>16:00-17:00</th>
+                    <?php
+                    foreach ($data as $row)
+                    {
+                        foreach ($days_of_week as $days)
+                        {
+                            occupy($row, "8", "16:00", $days);
+                        }
+                    }
+                    ?>  
+                    </tr>        
                 </table>
             </div>
         </div>     
