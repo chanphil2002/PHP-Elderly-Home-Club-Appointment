@@ -1,6 +1,3 @@
-<?php
-        include 'connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,61 +19,42 @@
         <a href="#manageprofile">Manage Profile</a>
     </div>
     <div class="wrapper">
-        <?php
-            $page_id = '5';
-            include 'sidebar.php';
-             
-            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
-            
-            $monday = array();
-            $tuesday = array();
-            $wednesday = array();
-            $thursday = array();
-            $friday = array();
-            
-            while ($rows = mysqli_fetch_array($result))
-            {
-                if (date('w', strtotime($rows['date'])) == 1){
-                    $monday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 2) {
-                    $tuesday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 3) {
-                    $wednesday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 4) {
-                    $thursday += $rows;
-                }
-                elseif (date('w', strtotime($rows['date'])) == 5) {
-                    $friday += $rows;
-                }
-            }
-            $result->free()
-        ?>
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile_pic.png">
+            </div>
+            <ul>
+                <li>
+                    <a href="handyman_profile.php">My Profile</a>
+                </li>
+                <li>
+                    <a href="handyman_timetable.php" class="active">My Timetable</a>
+                </li>
+                <li>
+                    <a href="handyman_notification.php">Notifications</a>
+                </li>
+            </ul>
+        </div>  
         <div class= "card_body">
             <div class="info">
                 <h1>Lee's Timetable</h1>
-                <!-- popup content -->
-                <?php 
-                function popup($rows) {
-                    echo'<div id="m1" class="overlay">
-                        <div class="popup">
+                <!-- poput content -->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
                         <h2>Appointment Details</h2>
                         <a class="close" href="#">x</a>
                         <div class="data">
-                        <h3>Name of Tenant</h3>
-                        <p>' . $rows['appointment_id'] . '<p>
-                        <h3> Type of Repair </h3>
-                        <p>' . $rows['appointment_id'] . '</p>
-                        <h3>Reminder for The Agent</h3>
-                        <p style="line-height: 1.5em; height: 3em;">' . $rows['appointment_id'] . '</p>
+                            <h3>Name of Tenant</h3>
+                            <p>Ligma</p>
+                            <h3>Contact Number</h3>
+                            <p>69420</p>
+                            <h3>Type of Repair</h3>
+                            <p>Mental Health</p>
+                            <h3>Reminder for The Agent</h3>
+                            <p style="line-height: 1.5em; height: 3em;">Love Me Dont Go</p>
                         </div>
-                        </div>
-                        </div>';
-                }
-                popup($rows);
-                ?>
+                    </div>
+                </div>
                 <table>
                     <tr>
                         <th></th>
@@ -88,11 +66,11 @@
                     </tr>                    
                     <tr>
                         <th>0900-1000</th>
-                            <td><a class="button" href="#m1">Occupied</a></td>
-                            <td><a class="button" href="#m2">Occupied</a></td>
-                            <td><a class="button" href="#m3">Occupied</a></td>
-                            <td><a class="button" href="#m4">Occupied</a></td>
-                            <td><a class="button" href="#m5">Occupied</a></td>
+                        <td><a class="button" href="#popup1">Occupied</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr> 
                     <tr>
                         <th>1000-1100</th>

@@ -11,7 +11,7 @@
 
 <body>
     <div class="navbar">
-        <a href="#home">Senior Dashboard</a>
+        <a href="#home">Handler Dashboard</a>
         <a href="#timetable">Timetable</a>
         <a href="#servicestatus">Service Status</a>
         <a href="#incomingrequest">Incoming Request</a>
@@ -19,10 +19,22 @@
         <a href="#manageprofile">Manage Profile</a>
     </div>
     <div class="wrapper">
-        <?php 
-                $page_id = '3';
-                include 'sidebar.php';
-        ?>
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile_pic.png">
+            </div>
+            <ul>
+                <li>
+                    <a href="handyman_profile.php" >My Profile</a>
+                </li>
+                <li>
+                    <a href="handyman_timetable.php">My Timetable</a>
+                </li>
+                <li>
+                    <a href="handyman_notification.php" class="active">Notifications</a>
+                </li>
+            </ul>
+        </div>  
         <div class= "card_body">
             <div class="info">
                 <h1>Notifications</h1>
@@ -33,7 +45,8 @@
                         <p>Notify me 20 minutes before the appointment</p>
                         <br>
                         <h3>New Appointment</h3>
-                        <p>Notify me when a task is appointed to me</p>                        
+                        <p>Notify me when a task is appointed to me</p>
+                        
                     </div>
                     <div class="data">
                         <h3>
@@ -53,6 +66,6 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>          
 </body>
 </html>

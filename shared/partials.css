@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+/* Navigation Bar CSS */
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li, a, button {
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.collapse {
+    font-size: 2em;
+    margin-right: 5em;
+}
+
+.nav-item {
+    padding-left: 2em;
+}
+
+/* Logo */
+.logo {
+    width: 5em;
+    height: 5em;
+}
+
+/* Login CSS */
+.login_page {
+    background-color: antiquewhite;
+}
+
+
+button {
+    padding: 9px 25px;
+    background-color: #E63E6D;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    border-color: #E63E6D;
+    background-color: #be384c;
+    transition: all 0.3s ease 0s;
+}
+
+.request-form {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(red, green, blue, alpha);
+    background: #ffffff;
+    padding: 25px 30px;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 5px;
+
+}
