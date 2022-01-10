@@ -59,23 +59,23 @@
                 <h1>Lee's Timetable</h1>
                 <!-- popup content -->
                 <?php 
-                function popup($rows) {
+                function popup($value) {
                     echo'<div id="m1" class="overlay">
                         <div class="popup">
                         <h2>Appointment Details</h2>
                         <a class="close" href="#">x</a>
                         <div class="data">
                         <h3>Name of Tenant</h3>
-                        <p>' . $rows['appointment_id'] . '<p>
+                        <p>' . $value['appointment_id'] . '<p>
                         <h3> Type of Repair </h3>
-                        <p>' . $rows['appointment_id'] . '</p>
+                        <p>' . $value['appointment_id'] . '</p>
                         <h3>Reminder for The Agent</h3>
-                        <p style="line-height: 1.5em; height: 3em;">' . $rows['appointment_id'] . '</p>
+                        <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
                         </div>
                         </div>
                         </div>';
                 }
-                popup($rows);
+                popup($monday);
                 ?>
                 <table>
                     <tr>
