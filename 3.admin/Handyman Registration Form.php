@@ -2,6 +2,8 @@
 
 include 'constants.php';
 
+// include 'admin_navigation_bar.php';
+
 error_reporting(0);
 
 session_start();
@@ -64,7 +66,7 @@ if (isset($_POST['submit'])) {
 </div>
 <div class="form-row">
 <label for="gender">GENDER *</label><br>
-<select name="gender" id="gender" style="height: 25px; margin-top: 3%;">
+<select name="gender" id="gender" style="height: 25px; margin-top: 3%;" >
     <option value="">Choose Your Gender *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
     <option value="Male">Male</option>
     <option value="Female">Female</option>
