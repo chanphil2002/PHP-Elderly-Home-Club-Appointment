@@ -18,7 +18,7 @@
             include '../shared/sidebar.php';
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY date ASC, time ASC;");
+            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY a_date ASC, a_time ASC;");
             $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             //popup for appointment details
@@ -29,12 +29,14 @@
                     <h2>Appointment Details</h2>
                     <a class="close" href="#">x</a>
                     <div class="data">
+                    <h3>Appointment ID</h3>
+                    <p>' . $value['ID'] . '<p>
                     <h3>Name of Tenant</h3>
-                    <p>' . $value['appointment_id'] . '<p>
+                    <p>' . $value['senior_IC'] . '<p>
                     <h3> Type of Repair </h3>
-                    <p>' . $value['appointment_id'] . '</p>
-                    <h3>Reminder for The Agent</h3>
-                    <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
+                    <p>' . $value['service_type'] . '</p>
+                    <h3>Description</h3>
+                    <p style="line-height: 1.5em; height: 3em;">' . $value['description'] . '</p>
                     </div>
                     </div>
                     </div>';
@@ -47,7 +49,7 @@
                 $LastDay = date("Y-m-d", strtotime('sunday this week'));
                     if ($Date > $FirstDay && $Date < $LastDay)
                     {    
-                        if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
+                        if (($value['a_time'] == $time) and (date('l', strtotime($value['a_date'])) == $days))
                         {
                             echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
                             popup($value, $days.$time);
