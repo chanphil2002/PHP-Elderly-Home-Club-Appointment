@@ -183,7 +183,7 @@ td, th {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 7px;
+    padding: 14px 0px;
     transition: 0.3s;
     font-size: large;
 }
