@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="partials.css" />
+    <script language="javascript" type="text/javascript">
+        window.history.forward();
+    </script>
 </head>
 
 <body class="login_page">
@@ -54,6 +57,8 @@
 
 <?php
     session_start();
+    session_destroy();
+    session_start();
     //Check whether the submit button is clicked or not
     if(isset($_POST['submit']))
     {
@@ -78,6 +83,7 @@
                 unset($_SESSION['handymanlogin']);
                 unset($_SESSION['adminlogin']);
                 header("location:".SITEURL."1.senior/senior_homepage.php");
+                exit;
             }
             else 
             {
@@ -99,6 +105,7 @@
                 unset($_SESSION['seniorlogin']);
                 unset($_SESSION['adminlogin']);
                 header("location:".SITEURL."2.handyman/handyman_profile.php");
+                exit;
             }
             else 
             {
@@ -120,6 +127,7 @@
                 unset($_SESSION['seniorlogin']);
                 unset($_SESSION['handymanlogin']);
                 header("location:".SITEURL."3.admin/Handyman Registration Form.php");
+                exit;
             }
             else 
             {
