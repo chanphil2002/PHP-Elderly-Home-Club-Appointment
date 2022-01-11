@@ -53,23 +53,21 @@
 </html>
 
 <?php
+    session_start();
     //Check whether the submit button is clicked or not
     if(isset($_POST['submit']))
     {
-        echo "submit";
         //Process for Login
         //1. Get the Data from Login form
         $username = $_POST['userid'];
         $password = $_POST['password'];
         $user = $_POST['user-type'];
-        echo $username;
 
         //2. SQL to check whether the user with username and password exists or not
         if($user == "senior")
         {
-            echo "senior";
             $sql = "SELECT * FROM tbl_senior WHERE IC='$username' AND password='$password'";
-
+   
             $result = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($result);
     
@@ -77,7 +75,7 @@
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
                 $_SESSION['user'] = $username;
-                header("Location:".SITEURL."1.senior/senior_homepage.php");
+                header("location:".SITEURL."1.senior/senior_homepage.php");
             }
             else 
             {
@@ -87,7 +85,6 @@
 
         if($user == "handyman")
         {
-            echo "handyman";
             $sql = "SELECT * FROM tbl_handyman WHERE IC='$username' AND password='$password'";
 
             $result = mysqli_query($conn, $sql);
@@ -97,7 +94,7 @@
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
                 $_SESSION['user'] = $username;
-                header("Location:".SITEURL."2.handyman/handyman_profile.php");
+                header("location:".SITEURL."2.handyman/handyman_profile.php");
             }
             else 
             {
@@ -107,7 +104,6 @@
 
         if($user == "admin")
         {
-            echo "admin";
             $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
 
             $result = mysqli_query($conn, $sql);
@@ -117,7 +113,7 @@
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
                 $_SESSION['user'] = $username;
-                header("Location:".SITEURL."3.admin/Handyman Registration Form.php");
+                header("location:".SITEURL."3.admin/Handyman Registration Form.php");
             }
             else 
             {

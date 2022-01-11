@@ -1,6 +1,6 @@
 <?php
 
-include 'constants.php';
+include '../shared/admin_navigation_bar.php';
 
 // include 'admin_navigation_bar.php';
 

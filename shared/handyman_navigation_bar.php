@@ -1,5 +1,4 @@
 <?php 
-    include('../config/constants.php'); 
     include('login_check.php');  
 ?>
 
@@ -34,7 +33,7 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="logout.php">Are you sure?</a>
+                <a class="dropdown-item" href="../shared/logout.php">Are you sure?</a>
             </div>
         </li>
         </div>

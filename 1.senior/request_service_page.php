@@ -122,7 +122,7 @@
       <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
     </div>
   </div>
-  <input class="form-control" type="text" placeholder="Readonly input here…" readonly value="<?php >
+  <input class="form-control" type="text" placeholder="Readonly input here…" readonly >
 </form>
 </body>
 
