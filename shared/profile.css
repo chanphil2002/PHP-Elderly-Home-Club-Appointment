@@ -201,7 +201,6 @@ td, th {
     height: 300px;
     overflow: scroll;
     overflow-x: hidden;
-    max-width: 620px;
 }
 .tabcontent .a_info {
     line-height: 0px;
