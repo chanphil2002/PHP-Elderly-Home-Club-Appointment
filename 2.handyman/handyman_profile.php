@@ -13,22 +13,10 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="../image/profile_pic.png">
-            </div>
-            <ul>
-                <li>
-                    <a href="handyman_profile.php" class="active">My Profile</a>
-                </li>
-                <li>
-                    <a href="handyman_timetable.php">My Timetable</a>
-                </li>
-                <li>
-                    <a href="handyman_notification.php">Notifications</a>
-                </li>
-            </ul>
-        </div>  
+        <?php
+        $page_id = '3';
+        include '../shared/sidebar.php';
+        ?> 
         <div class= "card_body">
             <div class="info">
                 <h1>My Profile</h1>

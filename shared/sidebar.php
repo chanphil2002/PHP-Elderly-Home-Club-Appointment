@@ -47,7 +47,7 @@
     <div class="profile">
         <img src="profile_pic.png">
     </div>
-    <?php if ($page_id < 4) { ?>
+    <?php if ($page_id < 3) { ?>
         <ul>    
             <li>
                 <a class="<?php echo ($page_id == "1" ? "active" : "")?>" href="senior_profile.php">My Profile</a>
@@ -55,20 +55,14 @@
             <li>
                 <a class="<?php echo ($page_id == "2" ? "active" : "")?>" href="senior_appointment.php">My Appointment</a>
             </li>
-            <li>
-                <a class="<?php echo ($page_id == "3" ? "active" : "")?>" href="senior_notification.php">Notifications</a>
-            </li>
         </ul>
     <?php } else { ?>
     <ul>
         <li>
-            <a class="<?php echo ($page_id == "4" ? "active" : "")?>" href="handyman_profile.php" >My Profile</a>
+            <a class="<?php echo ($page_id == "3" ? "active" : "")?>" href="handyman_profile.php" >My Profile</a>
         </li>
         <li>
-            <a class="<?php echo ($page_id == "5" ? "active" : "")?>" href="handyman_timetable.php">My Timetable</a>
-        </li>
-        <li>
-            <a class="<?php echo ($page_id == "6" ? "active" : "")?>" href="handyman_notification.php">Notifications</a>
+            <a class="<?php echo ($page_id == "4" ? "active" : "")?>" href="handyman_timetable.php">My Timetable</a>
         </li>
     </ul>
     <?php } ?>           

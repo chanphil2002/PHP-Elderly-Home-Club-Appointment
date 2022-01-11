@@ -1,3 +1,5 @@
+<?php include('../shared/handyman_navigation_bar.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,30 +7,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../shared/profile.css">
     <title>Profile Settings</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#home">Handler Dashboard</a>
-        <a href="#timetable">Timetable</a>
-        <a href="#servicestatus">Service Status</a>
-        <a href="#incomingrequest">Incoming Request</a>
-        <a href="#registration">Registration</a>
-        <a href="#manageprofile">Manage Profile</a>
-    </div>
     <div class="wrapper">
         <?php
-            $page_id = '5';
+            $page_id = '4';
             include '../shared/sidebar.php';
-             
-            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
-            while ($rows = mysqli_fetch_assoc($result))
-            {
-                $data[] = $rows;
-            }
-            $days_of_week = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday');
+            
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY date ASC, time ASC;");
+            $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             //popup for appointment details
             function popup($value, $popup_id) 
@@ -50,16 +41,13 @@
             }
             
             //function to determine appointment details for table cells
-            function occupy($value, $popup_id, $time, $date)
+            function occupy($value, $time, $days)
             {
-            if (isset($value['time']))
-            {
-                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $date))
+                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
                 {
-                    echo '<td><a class="button" href=#'.$date.$popup_id.'>Occupied</a></td>';
-                    popup($value, $date.$popup_id);
-                }            
-            }
+                    echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
+                    popup($value, $days.$time);
+                }
         }
         ?>
         <div class= "card_body">
@@ -76,100 +64,349 @@
                     </tr>
                     <tr>
                         <th>09:00-10:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days) 
-                        {
-                            occupy($row, "1", "09:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>10:00-11:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "2", "10:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "10:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "10:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "10:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "10:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "10:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>11:00-12:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "3", "11:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "11:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "11:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "11:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "11:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "11:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>12:00-13:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "4", "12:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "12:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "12:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "12:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "12:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "12:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>13:00-14:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "5", "13:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "13:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "13:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "13:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "13:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "13:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>14:00-15:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "6", "14:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "14:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "14:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "14:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "14:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "14:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>15:00-16:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "7", "15:00", $days);
-                        }
-                    }
-                    ?>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "15:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "15:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "15:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "15:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "15:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>16:00-17:00</th>
-                    <?php
-                    foreach ($data as $row)
-                    {
-                        foreach ($days_of_week as $days)
-                        {
-                            occupy($row, "8", "16:00", $days);
-                        }
-                    }
-                    ?>  
-                    </tr>        
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "16:00", "Monday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "16:00", "Tuesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "16:00", "Wednesday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "16:00", "Thursday");
+                            }                    
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "16:00", "Friday");
+                            }                    
+                        ?>
+                        </td>
+                    </tr>
+                          
                 </table>
             </div>
         </div>     
