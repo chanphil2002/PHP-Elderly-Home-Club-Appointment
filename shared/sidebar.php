@@ -43,11 +43,11 @@
     }
 </style>
 
-<aside>
+<aside>    
+    <?php if ($page_id < 3) { ?>
     <div class="profile">
         <img src="profile_pic.png">
     </div>
-    <?php if ($page_id < 3) { ?>
         <ul>    
             <li>
                 <a class="<?php echo ($page_id == "1" ? "active" : "")?>" href="senior_profile.php">My Profile</a>
@@ -57,6 +57,9 @@
             </li>
         </ul>
     <?php } else { ?>
+    <div class="profile">
+        <img src="profile_pic.png">
+    </div>
     <ul>
         <li>
             <a class="<?php echo ($page_id == "3" ? "active" : "")?>" href="handyman_profile.php" >My Profile</a>
