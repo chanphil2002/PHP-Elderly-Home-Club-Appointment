@@ -76,7 +76,7 @@
                         Logout
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../shared/logout.php">Are you sure?</a>
+                        <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
                     </div>
                 </li>
             </ul>
