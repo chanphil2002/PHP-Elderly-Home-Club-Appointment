@@ -74,7 +74,9 @@
             if ($count==1) 
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['user'] = $username;
+                $_SESSION['seniorlogin'] = $username;
+                unset($_SESSION['handymanlogin']);
+                unset($_SESSION['adminlogin']);
                 header("location:".SITEURL."1.senior/senior_homepage.php");
             }
             else 
@@ -93,7 +95,9 @@
             if ($count==1) 
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['user'] = $username;
+                $_SESSION['handymanlogin'] = $username;
+                unset($_SESSION['seniorlogin']);
+                unset($_SESSION['adminlogin']);
                 header("location:".SITEURL."2.handyman/handyman_profile.php");
             }
             else 
@@ -112,7 +116,9 @@
             if ($count==1) 
             {
                 $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['user'] = $username;
+                $_SESSION['adminlogin'] = $username;
+                unset($_SESSION['seniorlogin']);
+                unset($_SESSION['handymanlogin']);
                 header("location:".SITEURL."3.admin/Handyman Registration Form.php");
             }
             else 
