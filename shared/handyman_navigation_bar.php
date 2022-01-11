@@ -1,5 +1,13 @@
 <?php 
-    include('login_check.php');  
+    include('../config/constants.php'); 
+    
+    session_start();
+
+    if(!isset($_SESSION['handymanlogin']))
+    {   
+        $_SESSION['no-login-message'] = "<div class='error'>Please login to access Admin Panel.</div>";
+        header("location:".SITEURL."shared/login.php");
+    } 
 ?>
 
 <!DOCTYPE html>
