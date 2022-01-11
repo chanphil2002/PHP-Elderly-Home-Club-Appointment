@@ -1,10 +1,4 @@
-<?php
-    include('../partials/senior_navigation_bar.php');
-
-    $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE senior_ic = '999'");
-    $row = mysqli_fetch_array($result);
-    $conn->close();
-?>
+<?php include('../shared/handyman_navigation_bar.php'); ?>
 
 
 <!DOCTYPE html>
@@ -14,36 +8,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../shared/profile.css">
     <title>Profile Settings</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#home">Senior Dashboard</a>
-        <a href="#timetable">Timetable</a>
-        <a href="#servicestatus">Service Status</a>
-        <a href="#incomingrequest">Incoming Request</a>
-        <a href="#registration">Registration</a>
-        <a href="#manageprofile">Manage Profile</a>
-    </div>
-    <div class="wrapper">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="profile_pic.png">
-            </div>
-            <ul>
-                <li>
-                    <a href="senior_profile.php" class="active">My Profile</a>
-                </li>
-                <li>
-                    <a href="senior_appointment.php">My Appointment</a>
-                </li>
-                <li>
-                    <a href="senior_notification.php">Notifications</a>
-                </li>
-            </ul>
-        </div>  
+    <div class="wrapper">        
+        <?php
+        $page_id = '1';
+        include '../shared/sidebar.php';
+        $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE senior_ic = '999'");
+        $row = mysqli_fetch_array($result);
+        $conn->close();
+        ?> 
         <div class= "card_body">
             <div class="info">
                 <h1>My Profile</h1>

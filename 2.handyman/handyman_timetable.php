@@ -12,14 +12,6 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#home">Handler Dashboard</a>
-        <a href="#timetable">Timetable</a>
-        <a href="#servicestatus">Service Status</a>
-        <a href="#incomingrequest">Incoming Request</a>
-        <a href="#registration">Registration</a>
-        <a href="#manageprofile">Manage Profile</a>
-    </div>
     <div class="wrapper">
         <?php
             $page_id = '4';
