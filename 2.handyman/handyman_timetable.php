@@ -43,11 +43,16 @@
             //function to determine appointment details for table cells
             function occupy($value, $time, $days)
             {
-                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
-                {
-                    echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
-                    popup($value, $days.$time);
-                }
+                $FirstDay = date("Y-m-d", strtotime('sunday last week'));
+                $LastDay = date("Y-m-d", strtotime('sunday this week'));
+                    if ($Date > $FirstDay && $Date < $LastDay)
+                    {    
+                        if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
+                        {
+                            echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
+                            popup($value, $days.$time);
+                        }
+                    }
         }
         ?>
         <div class= "card_body">
