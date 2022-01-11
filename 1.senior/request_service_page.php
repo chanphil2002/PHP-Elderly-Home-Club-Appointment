@@ -1,18 +1,20 @@
 <?php include('../shared/senior_navigation_bar.php'); ?>
 
 <?php
-    $IC = "SELECT `IC` FROM `tbl_senior` WHERE `IC`=$username";
-    $name = "SELECT `IC`, CONCAT(fname, ' ',lname) AS `fullName`, `gender`, `address`, `phone_number` FROM `tbl_senior`";
-    echo "test";
+    $senior_IC = $_SESSION['seniorlogin'];
+    $sql = "SELECT IC, CONCAT(fname, ' ',lname) AS `fullName`, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = $senior_IC";
+    $result = mysqli_query($conn, $sql);   
+    $row = mysqli_fetch_array($result);
+
     if(isset($_POST['submit'])) 
     {
+        $IC = $_POST['IC'];
+        $name = $_POST['name'];
+        $gender = $_POST['gender'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
         $service_type = $_POST['service-type'];
         $service_description = $_POST['service-description'];
-        $name = $_POST['name'];
-        $IC = $_POST['IC'];
-        $gender = $_POST['gender'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
 
         $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
              ('$service_type', '$IC',900,90120,'pending','nice','image.jpg')";
@@ -32,7 +34,6 @@
             echo "fail";
         }
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -65,20 +66,17 @@
         <form class="container" action="" method="post" id="request-service-form">
             <div class="autofill-box">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="">
+                <input class="form-control" name="name" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['fullName']?>">
                 <label for="IC">Identity Card No.</label>
-                <input type="text" name="IC" id="">
-            </div>
-            <div class="autofill-box">
+                <input class="form-control" name="IC" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['IC']?>">
                 <label for="gender">Gender</label>
-                <input type="text" name="gender" id="">
+                <input class="form-control" name="gender" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['gender']?>">
                 <label for="address">Address</label>
-                <textarea name="address" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div class="autofill-box">
+                <input class="form-control" name="address" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['address']?>">
                 <label for="phone">Phone Number</label>
-                <input type="text" name="phone" id="">
+                <input class="form-control" name="phone" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['phone_number']?>">
             </div>
+
             <div class="input-box">
                 <label for="service-type">Service Type</label>
                 <select name="service-type" required>Please Select
@@ -112,18 +110,6 @@
             </div>
         </form>
     </div>
-
-    <form>
-  <div class="form-group row">
-  <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
-
-    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-    </div>
-  </div>
-  <input class="form-control" type="text" placeholder="Readonly input here…" readonly >
-</form>
 </body>
 
 </html>
