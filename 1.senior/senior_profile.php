@@ -1,5 +1,4 @@
-<?php include('../shared/senior_navigation_bar.php'); 
-$_SESSION['user'] = $IC?>
+<?php include('../shared/senior_navigation_bar.php'); ?>
 
 
 <!DOCTYPE html>
@@ -17,7 +16,12 @@ $_SESSION['user'] = $IC?>
     <div class="wrapper">        
         <?php
         $page_id = '1';
-        $result = mysqli_query($conn, "SELECT IC, fname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = content(IC)");
+        $senior_IC = $_SESSION['seniorlogin'];
+        //include php variable inside mysql
+        $stmt = $conn->prepare("SELECT IC, fname, lname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = ?");
+        $stmt->bind_param("s", $senior_IC);
+        $stmt->execute();
+        $result = $stmt->get_result();
         $row = mysqli_fetch_array($result);        
         include '../shared/sidebar.php';
         $conn->close();
