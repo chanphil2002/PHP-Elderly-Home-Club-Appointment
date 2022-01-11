@@ -1,4 +1,7 @@
-<?php include('../config/constants.php'); ?>
+<?php 
+    include('../config/constants.php'); 
+    include('login_check.php');  
+?>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office"
@@ -25,7 +28,7 @@
         <a class="navbar-brand" href="#">
             <img src="../image/Handyman.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
-        <a class="navbar-brand" href="../senior/senior_homepage.php">Admin Dashboard</a>
+        <a class="navbar-brand" href="../3.admin/Handyman Registration Form.php">Admin Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,7 +63,7 @@
                         <a class="dropdown-item" href="#">Handyman</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" id="logout">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Logout

@@ -1,14 +1,17 @@
-<?php include('../partials/senior_navigation_bar.php'); ?>
+<?php include('../shared/senior_navigation_bar.php'); ?>
 
 <?php
+    $autofill = "SELECT `IC`, CONCAT(fname, ' ',lname) AS `fullName`, `gender`, `address`, `phone_number` FROM `tbl_senior`";
+    
     if(isset($_POST['submit'])) 
     {
         $service_type = $_POST['service-type'];
         $service_description = $_POST['service-description'];
 
-        $sql = "INSERT INTO `products`(`name`) VALUES
-             ('[$service_type]')";
+        $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `handyman_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
+             ('$service_type', ')";
 
+        echo $sql;
         $query = mysqli_query($conn, $sql);
 
         if($query)

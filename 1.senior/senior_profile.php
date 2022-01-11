@@ -1,7 +1,7 @@
 <?php
-    include('../partials/senior_navigation_bar.php');
+    include('../shared/senior_navigation_bar.php');
 
-    $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE senior_ic = '999'");
+    $result = mysqli_query($conn, "SELECT IC, fname, lname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE senior_ic = '111'");
     $row = mysqli_fetch_array($result);
     $conn->close();
 ?>

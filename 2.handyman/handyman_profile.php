@@ -1,3 +1,5 @@
+<?php include('../shared/handyman_navigation_bar.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,23 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../shared/profile.css">
     <title>Profile Settings</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#home">Handler Dashboard</a>
-        <a href="#timetable">Timetable</a>
-        <a href="#servicestatus">Service Status</a>
-        <a href="#incomingrequest">Incoming Request</a>
-        <a href="#registration">Registration</a>
-        <a href="#manageprofile">Manage Profile</a>
-    </div>
     <div class="wrapper">
         <div class="sidebar">
             <div class="profile">
-                <img src="profile_pic.png">
+                <img src="../image/profile_pic.png">
             </div>
             <ul>
                 <li>

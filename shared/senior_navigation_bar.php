@@ -1,4 +1,6 @@
-<?php include('../config/constants.php'); ?>
+<?php 
+    include('../config/constants.php'); 
+?>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office"
@@ -40,7 +42,7 @@
                     <a class="nav-link " href="../1.senior/request_service_page.php">Request Service<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../profile/senior_profile.php">My Profile<span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="../1.senior/senior_profile.php">My Profile<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

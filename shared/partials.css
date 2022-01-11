@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-/* Navigation Bar CSS */
 * {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
@@ -15,6 +14,20 @@ li, a, button {
     text-decoration: none;
 }
 
+.login_box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+}
+
 .collapse {
     font-size: 2em;
     margin-right: 5em;
@@ -22,6 +35,10 @@ li, a, button {
 
 .nav-item {
     padding-left: 2em;
+}
+
+#logout {
+    margin-left: 2em;
 }
 
 /* Logo */
@@ -32,7 +49,11 @@ li, a, button {
 
 /* Login CSS */
 .login_page {
-    background-color: antiquewhite;
+    background-color: rgba(189, 74, 118, 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 

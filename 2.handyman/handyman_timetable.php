@@ -21,7 +21,7 @@
     <div class="wrapper">
         <?php
             $page_id = '5';
-            include 'sidebar.php';
+            include '../shared/sidebar.php';
              
             $result = mysqli_query($conn, "SELECT * FROM `tbl_appointments` WHERE status = 'approved' GROUP BY time ORDER BY date");
             while ($rows = mysqli_fetch_assoc($result))

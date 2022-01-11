@@ -1,4 +1,7 @@
-<?php include('../config/constants.php'); ?>
+<?php 
+    include('../config/constants.php'); 
+    include('login_check.php');  
+?>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office"

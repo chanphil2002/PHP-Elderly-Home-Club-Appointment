@@ -1,4 +1,4 @@
-<?php include('../config/constants.php'); ?>
+<?php include('../shared/admin_navigation_bar.php'); ?>
 
 <?php
 

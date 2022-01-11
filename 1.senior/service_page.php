@@ -1,4 +1,4 @@
-<?php include('../partials/senior_navigation_bar.php'); ?>
+<?php include('../shared/senior_navigation_bar.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
