@@ -1,4 +1,5 @@
-<?php include('../shared/senior_navigation_bar.php'); ?>
+<?php include('../shared/senior_navigation_bar.php'); 
+$_SESSION['user'] = $IC?>
 
 
 <!DOCTYPE html>
@@ -16,9 +17,9 @@
     <div class="wrapper">        
         <?php
         $page_id = '1';
+        $result = mysqli_query($conn, "SELECT IC, fname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = content(IC)");
+        $row = mysqli_fetch_array($result);        
         include '../shared/sidebar.php';
-        $result = mysqli_query($conn, "SELECT first_name, last_name, gender, ic_no, address FROM tbl_senior WHERE senior_ic = '999'");
-        $row = mysqli_fetch_array($result);
         $conn->close();
         ?> 
         <div class= "card_body">
@@ -27,7 +28,7 @@
                 <div class="info_data">
                     <div class="data">
                         <h3>First Name</h3>
-                        <p><?php echo $row['first_name'] ?></p>
+                        <p><?php echo $row['fname'] ?></p>
                         <h3>Gender</h3>
                         <p><?php echo $row['gender'] ?></p>
                         <h3>Address</h3>
@@ -35,9 +36,9 @@
                     </div>
                     <div class="data">
                         <h3>Last Name</h3>
-                        <p><?php echo $row['last_name'] ?></p>
+                        <p><?php echo $row['lname'] ?></p>
                         <h3>Identity Card No.</h3>
-                        <p><?php echo $row['ic_no'] ?></p>                        
+                        <p><?php echo $row['IC'] ?></p>                        
                     </div>
                 </div>
             </div>
