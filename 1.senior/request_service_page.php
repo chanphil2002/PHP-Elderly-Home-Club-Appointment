@@ -1,15 +1,24 @@
 <?php include('../shared/senior_navigation_bar.php'); ?>
 
 <?php
-    $autofill = "SELECT `IC`, CONCAT(fname, ' ',lname) AS `fullName`, `gender`, `address`, `phone_number` FROM `tbl_senior`";
-    
+    $IC = "SELECT `IC` FROM `tbl_senior` WHERE `IC`=$username";
+    $name = "SELECT `IC`, CONCAT(fname, ' ',lname) AS `fullName`, `gender`, `address`, `phone_number` FROM `tbl_senior`";
+    echo "test";
     if(isset($_POST['submit'])) 
     {
         $service_type = $_POST['service-type'];
         $service_description = $_POST['service-description'];
+        $name = $_POST['name'];
+        $IC = $_POST['IC'];
+        $gender = $_POST['gender'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
 
-        $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `handyman_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
-             ('$service_type', ')";
+        $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
+             ('$service_type', '$IC',900,90120,'pending','nice','image.jpg')";
+
+        // $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, 'a_date', 'status', 'description', 'image') VALUES
+        // ('$service_type', '$IC','','900','90120','pending','nice','image.jpg')";
 
         echo $sql;
         $query = mysqli_query($conn, $sql);
@@ -99,10 +108,22 @@
             </div>
             <hr>
             <div class="submit">
-                <button type="submit" form="request-service-form" value="Submit">Request Service Now</button>
+                <button name="submit" type="submit" form="request-service-form" value="Submit">Request Service Now</button>
             </div>
         </form>
     </div>
+
+    <form>
+  <div class="form-group row">
+  <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    </div>
+  </div>
+  <input class="form-control" type="text" placeholder="Readonly input here…" readonly value="<?php >
+</form>
 </body>
 
 </html>
