@@ -18,7 +18,7 @@
             include '../shared/sidebar.php';
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY a_date ASC, a_time ASC;");
+            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'to be completed' ORDER BY a_date ASC, a_time ASC;");
             $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             //popup for appointment details
