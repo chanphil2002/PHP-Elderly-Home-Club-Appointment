@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="partials.css" />
+    <link rel="stylesheet" type="text/css" href="../shared/partials.css" />
 </head>
 
 <body>
@@ -36,14 +36,20 @@
             <img src="../image/Handyman.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
         <a class="navbar-brand" href="../senior/senior_homepage.php">Handyman Dashboard</a>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
-            </div>
-        </li>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <div class="handyman-logout">
+                    <li class="nav-item dropdown logout">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" 
+                            aria-expanded="false">Logout
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
+                        </div>
+                    </li>
+                </div>
+            </ul>
         </div>
     </nav>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

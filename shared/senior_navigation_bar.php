@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="partials.css" />
+    <link rel="stylesheet" type="text/css" href="../shared/partials.css" />
 </head>
 
 <body>
@@ -52,15 +52,17 @@
                 <li class="nav-item">
                     <a class="nav-link " href="../1.senior/senior_profile.php">My Profile<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Logout
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
-                    </div>
-                </li>
+                <div class="logout">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Logout
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
+                        </div>
+                    </li>
+                </div>
             </ul>
 
         </div>

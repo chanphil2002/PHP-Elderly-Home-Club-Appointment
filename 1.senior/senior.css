@@ -12,7 +12,6 @@ button {
 button:hover {
     border-color: #E63E6D;
     background-color: #be384c;
-    transition: all 0.3s ease 0s;
 }
 
 li, a, button {
@@ -21,21 +20,11 @@ li, a, button {
     text-decoration: none;
 }
 
-.request-form {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(red, green, blue, alpha);
-    background: #ffffff;
-    padding: 25px 30px;
+.submit a:hover {
+    text-decoration: none;
 }
 
-.container {
-    max-width: 700px;
-    width: 100%;
-    background: #ffffff;
-    padding: 25px 30px;
-    border-radius: 5px;
 
-}
+
+
+

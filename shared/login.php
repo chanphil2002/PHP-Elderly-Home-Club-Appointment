@@ -22,7 +22,7 @@
                 unset($_SESSION['login']);
             }
         ?>
-    <div class="container" align="center">
+    <div class="custom-container" align="center">
         <br><br><br>
         <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
         <div class="login_box">

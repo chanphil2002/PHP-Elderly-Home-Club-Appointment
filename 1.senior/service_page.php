@@ -56,7 +56,9 @@
         </div>
     </div>
     <div>
-        <button>Request Service Now</button>
+        <button>
+            <a href="request_service_page.php">Request Service Now</a>
+        </button>
     </div>
 </body>
 
