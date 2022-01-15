@@ -1,5 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+li, a, button {
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #444444;
+  }
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin-top: 1.5em;
+    margin-left: 2em;
+    padding: 0;
+}
+
 button {
     padding: 9px 25px;
     background-color: #E63E6D;
@@ -14,17 +43,164 @@ button:hover {
     background-color: #be384c;
 }
 
-li, a, button {
-    font-size: 16px;
-    color: #ffffff;
-    text-decoration: none;
-}
 
 .submit a:hover {
     text-decoration: none;
 }
 
+.req-form-page {
+    background-color: rgba(219, 157, 181, 0.3);
+}
+
+.request-form {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(red, green, blue, alpha);
+    background: #ffffff;
+    padding: 25px 30px;
+    
+}
+
+.custom-container {
+    max-width: 700px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
 
 
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
 
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
 
+  /*--------------------------------------------------------------
+# service-list
+--------------------------------------------------------------*/
+.section-title {
+    text-align: center;
+}
+
+.service-list .service {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+.service-list .service .service-img {
+    height:180px;
+    width:auto;/*maintain aspect ratio*/
+    max-width:500px;
+    position: relative;
+    overflow: hidden;
+  }
+
+.service-list .service .service-info {
+    padding: 25px 15px;
+  }
+.service-list .service .service-info h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #0f394c;
+  }
+.service-list .service .service-info span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+  }
+.service-list .service .service-info p {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 26px;
+    color: #777777;
+  }
+
+.container {
+    margin-bottom: 10em;
+    margin-top: 2em;
+}
+
+#hero {
+  width: 100%;
+  height: 80vh;
+  background: #f9f9f9;
+}
+#hero .container {
+  padding-top: 84px;
+}
+#hero h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #0f394c;
+  text-transform: uppercase;
+}
+#hero h2 {
+  color: #1c698c;
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
+#hero .btn-get-started {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 25px;
+  color: #fff;
+  background: #49b5e7;
+  text-transform: uppercase;
+}
+
+/*--------------------------------------------------------------
+# Service
+--------------------------------------------------------------*/
+.view-service {
+  background-image: url("../image/secondhomepage.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  text-align: center;
+  padding-top:12em;
+  background-size: cover;
+  height: 500px;
+  color: #fff;
+}
+
+.view-service h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}  

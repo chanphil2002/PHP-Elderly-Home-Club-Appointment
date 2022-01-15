@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    <?php
+        if(isset($_SESSION['login']))
+        {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
+    ?>
     <div class="wrapper">
         <?php
         $page_id = '3';

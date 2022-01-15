@@ -35,7 +35,7 @@
         <a class="navbar-brand" href="../1.senior/senior_homepage.php">
             <img src="../image/Handyman.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
-        <a class="navbar-brand" href="../1.senior/senior_homepage.php">Senior Dashboard</a>
+        <a class="navbar-brand" href="../1.senior/senior_homepage.php">Handyman</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
+                    <a class="nav-link" href="../1.senior/senior_homepage.php">Homepage<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../1.senior/service_page.php">Services<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
