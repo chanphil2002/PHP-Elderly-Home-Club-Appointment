@@ -52,8 +52,8 @@
     height: 3em;
 }
 .data img{
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     margin: 0 auto;
 }
 /* Toggle Switch For Notification */
@@ -152,7 +152,7 @@ td, th {
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 50%;
+    width: 60%;
     position: relative;
     transition: all 5s ease-in-out;
 }

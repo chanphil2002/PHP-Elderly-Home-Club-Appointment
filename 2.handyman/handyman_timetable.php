@@ -20,7 +20,7 @@
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $handyman_IC = $_SESSION['handymanlogin'];
             $query = 
-            "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, s.senior_IC, s.fname, s.lname
+            "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, s.senior_IC, s.fname, s.lname
             FROM tbl_appointment a LEFT JOIN tbl_senior s 
             ON a.senior_IC = s.senior_IC
             WHERE a.status = 'to be completed' AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
@@ -33,8 +33,9 @@
                     <div class="popup">
                     <h2>Appointment Details(' .$value['ID'] . ')</h2>
                     <a class="close" href="#">x</a>
+                    <br>
                     <div class="info_data">
-                    <div class="data" style="width:30%;">
+                    <div class="data";">
                     <h3>Name of Tenant</h3>
                     <p>' . $value['fname'] .' '. $value['lname'] .'<p>
                     <h3> Type of Repair </h3>
@@ -46,8 +47,8 @@
                     <h3>Description</h3>
                     <p style="line-height: 1.5em; height: 3em;">' . $value['description'] . '</p>
                     </div>
-                    <div class="data" style="width:25%;">
-                    <img src="../image/Handyman.png" alt = "Appointment Image">
+                    <div class="data">
+                    <img src="../img_upload/appointment/' . $value['image'] . 'alt = "Appointment Image">
                     </div>
                     </div>
                     </div>';
