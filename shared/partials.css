@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 * {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
+
+html {
+  overflow-y : scroll;
+  }
 
 li, a, button {
     font-size: 16px;
