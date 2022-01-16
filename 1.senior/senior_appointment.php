@@ -17,6 +17,8 @@
         <?php 
             $page_id = '2';
             include '../shared/sidebar.php';
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $senior_IC = $_SESSION['seniorlogin'];
         ?>  
         <div class= "card_body">
             <div class="info">
@@ -30,7 +32,7 @@
                 <div id="pending" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'pending' GROUP BY a_time ORDER BY a_date");
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'pending' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                             while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
@@ -46,7 +48,7 @@
                 <div id="to be completed" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' GROUP BY a_time ORDER BY a_date");
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                             while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
@@ -62,7 +64,7 @@
                 <div id="completed" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'completed' GROUP BY a_time ORDER BY a_date");
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                             while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
@@ -78,7 +80,7 @@
                 <div id="rejected" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'rejected' GROUP BY a_time ORDER BY a_date");
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'rejected' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                             while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";

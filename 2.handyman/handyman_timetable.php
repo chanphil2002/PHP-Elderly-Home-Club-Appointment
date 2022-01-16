@@ -19,22 +19,32 @@
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $result = $conn->query("SELECT * FROM `tbl_appointment` WHERE status = 'approved' ORDER BY a_date ASC, a_time ASC;");
+            $handyman_IC = $_SESSION['handymanlogin'];
+            $query = 
+            "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, s.senior_IC, s.fname, s.lname
+            FROM tbl_appointment a LEFT JOIN tbl_senior s 
+            ON a.senior_IC = s.senior_IC
+            WHERE a.status = 'to be completed' AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
+            $result = $conn->query($query);
             $rows = $result->fetch_all(MYSQLI_ASSOC);
-
             //popup for appointment details
             function popup($value, $popup_id)
             {
                 echo'<div id="'. $popup_id .'" class="overlay">
                     <div class="popup">
-                    <h2>Appointment Details</h2>
+                    <h2>Appointment Details(' .$value['ID'] . ')</h2>
                     <a class="close" href="#">x</a>
                     <div class="data">
                     <h3>Name of Tenant</h3>
-                    <p>' . $value['appointment_id'] . '<p>
+                    <p>' . $value['fname'] .' '. $value['lname'] .'<p>
                     <h3> Type of Repair </h3>
-                    <p>' . $value['appointment_id'] . '</p>
-                    <h3>Reminder for The Agent</h3>
-                    <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
+                    <p>' . $value['service_type'] . '</p>                    
+                    <h3>Date</h3>
+                    <p>' . $value['a_date'] .'<p>
+                    <h3>Time</h3>
+                    <p>' . $value['a_time'] .'<p>
+                    <h3>Description</h3>
+                    <p style="line-height: 1.5em; height: 3em;">' . $value['description'] . '</p>
                     </div>
                     </div>
                     </div>';
@@ -43,11 +53,16 @@
             //function to determine appointment details for table cells
             function occupy($value, $time, $days)
             {
-                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
-                {
-                    echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
-                    popup($value, $days.$time);
-                }
+                $FirstDay = date("Y-m-d", strtotime('sunday last week'));
+                $LastDay = date("Y-m-d", strtotime('sunday this week'));
+                    if ($value['a_date'] > $FirstDay && $value['a_date'] < $LastDay)
+                    {    
+                        if (($value['a_time'] == $time) and (date('l', strtotime($value['a_date'])) == $days))
+                        {
+                            echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
+                            popup($value, $days.$time);
+                        }
+                    }
         }
         ?>
         <div class= "card_body">
@@ -68,7 +83,15 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "09:00", "Monday");
+                            occupy($row, "09:00:00", "Monday");  
+                            }                
+                        ?>
+                        </td>
+                        <td>
+                        <?php 
+                            foreach ($rows as $row)
+                            {
+                            occupy($row, "09:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -76,7 +99,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "09:00", "Tuesday");
+                            occupy($row, "09:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -84,7 +107,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "09:00", "Wednesday");
+                            occupy($row, "09:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -92,15 +115,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "09:00", "Thursday");
-                            }                    
-                        ?>
-                        </td>
-                        <td>
-                        <?php 
-                            foreach ($rows as $row)
-                            {
-                            occupy($row, "09:00", "Friday");
+                            occupy($row, "09:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -111,7 +126,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "10:00", "Monday");
+                            occupy($row, "10:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -119,7 +134,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "10:00", "Tuesday");
+                            occupy($row, "10:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -127,7 +142,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "10:00", "Wednesday");
+                            occupy($row, "10:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -135,7 +150,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "10:00", "Thursday");
+                            occupy($row, "10:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -143,7 +158,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "10:00", "Friday");
+                            occupy($row, "10:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -154,7 +169,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "11:00", "Monday");
+                            occupy($row, "11:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -162,7 +177,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "11:00", "Tuesday");
+                            occupy($row, "11:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -170,7 +185,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "11:00", "Wednesday");
+                            occupy($row, "11:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -178,7 +193,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "11:00", "Thursday");
+                            occupy($row, "11:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -186,7 +201,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "11:00", "Friday");
+                            occupy($row, "11:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -197,7 +212,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "12:00", "Monday");
+                            occupy($row, "12:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -205,7 +220,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "12:00", "Tuesday");
+                            occupy($row, "12:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -213,7 +228,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "12:00", "Wednesday");
+                            occupy($row, "12:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -221,7 +236,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "12:00", "Thursday");
+                            occupy($row, "12:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -229,7 +244,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "12:00", "Friday");
+                            occupy($row, "12:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -240,7 +255,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "13:00", "Monday");
+                            occupy($row, "13:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -248,7 +263,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "13:00", "Tuesday");
+                            occupy($row, "13:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -256,7 +271,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "13:00", "Wednesday");
+                            occupy($row, "13:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -264,7 +279,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "13:00", "Thursday");
+                            occupy($row, "13:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -272,7 +287,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "13:00", "Friday");
+                            occupy($row, "13:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -283,7 +298,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "14:00", "Monday");
+                            occupy($row, "14:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -291,7 +306,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "14:00", "Tuesday");
+                            occupy($row, "14:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -299,7 +314,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "14:00", "Wednesday");
+                            occupy($row, "14:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -307,7 +322,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "14:00", "Thursday");
+                            occupy($row, "14:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -315,7 +330,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "14:00", "Friday");
+                            occupy($row, "14:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -326,7 +341,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "15:00", "Monday");
+                            occupy($row, "15:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -334,7 +349,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "15:00", "Tuesday");
+                            occupy($row, "15:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -342,7 +357,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "15:00", "Wednesday");
+                            occupy($row, "15:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -350,7 +365,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "15:00", "Thursday");
+                            occupy($row, "15:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -358,7 +373,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "15:00", "Friday");
+                            occupy($row, "15:00:00", "Friday");
                             }                    
                         ?>
                         </td>
@@ -369,7 +384,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "16:00", "Monday");
+                            occupy($row, "16:00:00", "Monday");
                             }                    
                         ?>
                         </td>
@@ -377,7 +392,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "16:00", "Tuesday");
+                            occupy($row, "16:00:00", "Tuesday");
                             }                    
                         ?>
                         </td>
@@ -385,7 +400,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "16:00", "Wednesday");
+                            occupy($row, "16:00:00", "Wednesday");
                             }                    
                         ?>
                         </td>
@@ -393,7 +408,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "16:00", "Thursday");
+                            occupy($row, "16:00:00", "Thursday");
                             }                    
                         ?>
                         </td>
@@ -401,7 +416,7 @@
                         <?php 
                             foreach ($rows as $row)
                             {
-                            occupy($row, "16:00", "Friday");
+                            occupy($row, "16:00:00", "Friday");
                             }                    
                         ?>
                         </td>
