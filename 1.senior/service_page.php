@@ -31,7 +31,18 @@
                   <div class="col-lg-3 col-md-3 d-flex align-items-stretch">
                     <div class="service">
                       <div class="service-img">
-                      <img src="<?php echo $row['image']; ?>" class="img-fluid" alt="">
+                      <?php if ($row['image'] != NULL) 
+                        {
+                          ?>
+                          <img src="../img_upload/service_type/<?php echo $row["image"]; ?>" class="img-fluid" alt="No image">
+                          <?php
+                        }
+                        else {
+                          ?>
+                          <img src="../image/default.jpg" class="img-fluid" alt="No image">
+                          <?php
+                        }
+                        ?>
                       </div>
                       <div class="service-info">
                       <h4><?php echo $row['service_type']; ?></h4>
