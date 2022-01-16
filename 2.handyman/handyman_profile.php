@@ -16,11 +16,6 @@
         <?php
         $page_id = '3';
         include '../shared/sidebar.php';
-        $stmt = $conn->prepare("SELECT handyman_IC, fname, lname, gender, address, phone_number, skills FROM tbl_handyman WHERE handyman_IC = ?");
-        $stmt->bind_param("s", $_SESSION['handymanlogin']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = mysqli_fetch_array($result); 
         ?> 
         <div class= "card_body">
             <div class="info">
