@@ -28,23 +28,26 @@
                 <div class="info_data">
                     <div class="data">
                         <h3>First Name</h3>
-                        <p>Lee</p>
+                        <p><?php echo $row['fname'] ?></p>
                         <h3>Gender</h3>
-                        <p>Male</p>
+                        <p><?php echo $row['gender'] ?></p>
                         <h3>Address</h3>
-                        <p><span>Jalan SS26/6, Taman Mayang Jaya, 473044</span></p>
-                        <h3>Specialized Skills</h3>
-                        <p>Plumber</p>
+                        <p><span><?php echo $row['address'] ?></span></p>
+                        <br>
+                        <h3>Specialised Skill</h3>                        
+                        <p><?php echo $row['skills'] ?></p>  
                     </div>
                     <div class="data">
                         <h3>Last Name</h3>
-                        <p>Wei</p>
-                        <h3>Identity Card No.</h3>
-                        <p>012345-78-9999</p>                        
+                        <p><?php echo $row['lname'] ?></p>
+                        <h3>Identity Card No.</h3>                      
+                        <p><?php echo $row['handyman_IC'] ?></p>
+                        <h3>Phone Number</h3>
+                        <p><?php echo $row['phone_number'] ?></p>
                     </div>
-                </div>
+                </div> 
             </div>
-        </div>     
+        </div>
     </div>
 </body>
 </html>
