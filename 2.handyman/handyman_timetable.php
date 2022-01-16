@@ -18,8 +18,6 @@
             include '../shared/sidebar.php';
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $result = $conn->query("SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' ORDER BY a_date ASC, a_time ASC;");
-            $handyman_IC = $_SESSION['handymanlogin'];
             $query = 
             "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, s.senior_IC, s.fname, s.lname
             FROM tbl_appointment a LEFT JOIN tbl_senior s 
