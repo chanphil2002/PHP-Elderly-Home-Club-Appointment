@@ -10,14 +10,15 @@
     border-bottom-left-radius: 15px;    
     }
     aside .profile{
-        margin-bottom: 30px;
+        margin-top: 1em;
+        margin-bottom: 1em;
         text-align: center;
     }
     aside .profile img{
-        padding-top: 10px;
         display: block;
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
         border-radius: 50%;
         margin: 0 auto;
     }
@@ -74,7 +75,7 @@
         $row = mysqli_fetch_array($result);
     ?>
     <div class="profile">
-        <img src="../img_upload/handyman/<?php echo $row['profile_picture'];?>" alt = "Profile Image">
+        <img src="../image/handyman/<?php echo $row['profile_picture'];?>" alt = "Profile Image">
     </div>
     <ul>
         <li>
