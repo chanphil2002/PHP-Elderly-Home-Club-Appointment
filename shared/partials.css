@@ -19,7 +19,7 @@ li, a, button {
     text-decoration: none;
 }
 
-.center{
+.login-box{
     padding: 2em;
     position: absolute;
     top: 50%;
@@ -30,12 +30,12 @@ li, a, button {
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
   }
-  .center h1{
+  .login-box h1{
     text-align: center;
     padding: 20px 0;
     border-bottom: 1px solid silver;
   }
-  .center form{
+  .login-box form{
     padding: 0 40px;
     box-sizing: border-box;
   }
@@ -152,7 +152,7 @@ li, a, button {
 }
 
 .handyman-logout {
-    margin-left: 27em;
+  padding-left: 30em;
 }
 
 /* Logo */

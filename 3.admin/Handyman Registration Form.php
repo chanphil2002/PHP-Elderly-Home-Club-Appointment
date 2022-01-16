@@ -1,6 +1,4 @@
-<?php
-
-include '../shared/admin_navigation_bar.php';
+<?php include '../shared/admin_navigation_bar.php';
 
 // include 'admin_navigation_bar.php';
 
@@ -28,7 +26,7 @@ if (isset($_POST['submit'])) {
 		$run_upload = mysqli_query($conn,$upload);
 		if($run_upload === true) {
 			echo "<script>alert('Registration Complete!')</script>";
-			echo "<script> window.location.assign('LogIn.php'); </script>"; 
+			echo "<script> window.location.assign('../shared/login.php'); </script>"; 
 			move_uploaded_file($tmp_name,"upload/$profile_picture");
 		}else {
 			echo "Failed, Try Again";

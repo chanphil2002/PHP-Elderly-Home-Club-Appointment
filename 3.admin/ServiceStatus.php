@@ -1,9 +1,5 @@
-<?php
-        include 'constants.php';
+<?php include '../shared/admin_navigation_bar.php';?>
 
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
