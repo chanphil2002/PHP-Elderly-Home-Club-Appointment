@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../shared/profile.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <title>My Appointment</title>
+    <title>Profile Settings</title>
 </head>
 
 <body>
@@ -17,6 +17,8 @@
         <?php 
             $page_id = '2';
             include '../shared/sidebar.php';
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $senior_IC = $_SESSION['seniorlogin'];
         ?>  
         <div class= "card_body">
             <div class="info">
@@ -30,11 +32,8 @@
                 <div id="pending" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $stmt = $conn->prepare("SELECT * FROM `tbl_appointment` WHERE status = 'pending' AND senior_IC = ? GROUP BY a_time ORDER BY a_date");
-                            $stmt->bind_param("s", $_SESSION['seniorlogin']);
-                            $stmt->execute();
-                            $result = $stmt->get_result();
-                            while($rows = mysqli_fetch_array($result))
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'pending' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                            while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
                                 echo "<h4>" .$rows['service_type'] . "</h4>";
@@ -42,17 +41,15 @@
                                 echo "<p><i class='far fa-clock fa-fw'></i>" . $rows['a_time'] . "</p>";
                                 echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $rows['handyman_IC']. "</h5><hr>";          
                             }
+                            $result->free();  // free result set
                             ?>
                     </div>
                 </div>
                 <div id="to be completed" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $stmt = $conn->prepare("SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = ? GROUP BY a_time ORDER BY a_date");
-                            $stmt->bind_param("s", $_SESSION['seniorlogin']);
-                            $stmt->execute();
-                            $result = $stmt->get_result();
-                            while($rows = mysqli_fetch_array($result))
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                            while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
                                 echo "<h4>" .$rows['service_type'] . "</h4>";
@@ -60,17 +57,15 @@
                                 echo "<p><i class='far fa-clock fa-fw'></i>" . $rows['a_time'] . "</p>";
                                 echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $rows['handyman_IC']. "</h5><hr>";          
                             }
+                            $result->free();
                             ?>                         
                     </div>                                                                        
                 </div>                  
                 <div id="completed" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $stmt = $conn->prepare("SELECT * FROM `tbl_appointment` WHERE status = 'completed' AND senior_IC = ? GROUP BY a_time ORDER BY a_date");
-                            $stmt->bind_param("s", $_SESSION['seniorlogin']);
-                            $stmt->execute();
-                            $result = $stmt->get_result();
-                            while($rows = mysqli_fetch_array($result))
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                            while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
                                 echo "<h4>" .$rows['service_type'] . "</h4>";
@@ -78,17 +73,15 @@
                                 echo "<p><i class='far fa-clock fa-fw'></i>" . $rows['a_time'] . "</p>";
                                 echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $rows['handyman_IC']. "</h5><hr>";          
                             }
+                            $result->free();
                             ?>                         
                     </div>                    
                 </div>
                 <div id="rejected" class="tabcontent">
                     <div class="a_info">
                         <?php 
-                            $stmt = $conn->prepare("SELECT * FROM `tbl_appointment` WHERE status = 'rejected' AND senior_IC = ? GROUP BY a_time ORDER BY a_date");
-                            $stmt->bind_param("s", $_SESSION['seniorlogin']);
-                            $stmt->execute();
-                            $result = $stmt->get_result();
-                            while($rows = mysqli_fetch_array($result))
+                            $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'rejected' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                            while ($rows = mysqli_fetch_array($result)) 
                             {                               
                                 echo "<h3>" . $rows['ID'] . "</h3>";
                                 echo "<h4>" .$rows['service_type'] . "</h4>";
@@ -96,6 +89,7 @@
                                 echo "<p><i class='far fa-clock fa-fw'></i>" . $rows['a_time'] . "</p>";
                                 echo "<h5><i class='far fa-id-badge fa-fw'></i>" . $rows['handyman_IC']. "</h5><hr>";          
                             }
+                            $result->free();
                             ?>                         
                     </div>                    
                 </div>            
