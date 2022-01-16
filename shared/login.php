@@ -1,5 +1,96 @@
 <?php include('../config/constants.php'); ?>
 
+<?php
+    session_start();
+    session_destroy();
+    session_start();
+    //Check whether the submit button is clicked or not
+    if(isset($_POST['submit']))
+    {
+        //Process for Login
+        //1. Get the Data from Login form
+        $username = $_POST['userid'];
+        $password = $_POST['password'];
+        $user = $_POST['user-type'];
+
+        //2. SQL to check whether the user with username and password exists or not
+        if($user == "senior")
+        {
+            $sql = "SELECT * FROM tbl_senior WHERE senior_IC='$username' AND password='$password'";
+   
+            $result = mysqli_query($conn, $sql);
+            $count = mysqli_num_rows($result);
+    
+            if ($count==1) 
+            {
+                $_SESSION['login'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+
+                $_SESSION['seniorlogin'] = $username;
+                unset($_SESSION['handymanlogin']);
+                unset($_SESSION['adminlogin']);
+                header("location:".SITEURL."1.senior/senior_homepage.php");
+                exit;
+            }
+            else 
+            {
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
+            }
+        }
+
+        if($user == "handyman")
+        {
+            $sql = "SELECT * FROM tbl_handyman WHERE handyman_IC='$username' AND password='$password'";
+
+            $result = mysqli_query($conn, $sql);
+            $count = mysqli_num_rows($result);
+    
+            if ($count==1) 
+            {
+                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
+                $_SESSION['handymanlogin'] = $username;
+                unset($_SESSION['seniorlogin']);
+                unset($_SESSION['adminlogin']);
+                header("location:".SITEURL."2.handyman/handyman_profile.php");
+                exit;
+            }
+            else 
+            {
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
+            }
+        }
+
+        if($user == "admin")
+        {
+            $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+
+            $result = mysqli_query($conn, $sql);
+            $count = mysqli_num_rows($result);
+    
+            if ($count==1) 
+            {
+                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
+                $_SESSION['adminlogin'] = $username;
+                unset($_SESSION['seniorlogin']);
+                unset($_SESSION['handymanlogin']);
+                header("location:".SITEURL."3.admin/Handyman Registration Form.php");
+                exit;
+            }
+            else 
+            {
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
+            }
+        }
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -53,88 +144,3 @@
 </body>
 
 </html>
-
-<?php
-    session_start();
-    session_destroy();
-    session_start();
-    //Check whether the submit button is clicked or not
-    if(isset($_POST['submit']))
-    {
-        //Process for Login
-        //1. Get the Data from Login form
-        $username = $_POST['userid'];
-        $password = $_POST['password'];
-        $user = $_POST['user-type'];
-
-        //2. SQL to check whether the user with username and password exists or not
-        if($user == "senior")
-        {
-            $sql = "SELECT * FROM tbl_senior WHERE IC='$username' AND password='$password'";
-   
-            $result = mysqli_query($conn, $sql);
-            $count = mysqli_num_rows($result);
-    
-            if ($count==1) 
-            {
-                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['seniorlogin'] = $username;
-                unset($_SESSION['handymanlogin']);
-                unset($_SESSION['adminlogin']);
-                header("location:".SITEURL."1.senior/senior_homepage.php");
-                exit;
-            }
-            else 
-            {
-                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
-            }
-        }
-
-        if($user == "handyman")
-        {
-            $sql = "SELECT * FROM tbl_handyman WHERE IC='$username' AND password='$password'";
-
-            $result = mysqli_query($conn, $sql);
-            $count = mysqli_num_rows($result);
-    
-            if ($count==1) 
-            {
-                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['handymanlogin'] = $username;
-                unset($_SESSION['seniorlogin']);
-                unset($_SESSION['adminlogin']);
-                header("location:".SITEURL."2.handyman/handyman_profile.php");
-                exit;
-            }
-            else 
-            {
-                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
-            }
-        }
-
-        if($user == "admin")
-        {
-            $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
-
-            $result = mysqli_query($conn, $sql);
-            $count = mysqli_num_rows($result);
-    
-            if ($count==1) 
-            {
-                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
-                $_SESSION['adminlogin'] = $username;
-                unset($_SESSION['seniorlogin']);
-                unset($_SESSION['handymanlogin']);
-                header("location:".SITEURL."3.admin/Handyman Registration Form.php");
-                exit;
-            }
-            else 
-            {
-                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
-            }
-        }
-	}
-?>
