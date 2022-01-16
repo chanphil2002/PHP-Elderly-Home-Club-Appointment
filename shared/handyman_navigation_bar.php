@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #E63E6D;">
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between" style="background-color: #E63E6D;">
         <a class="navbar-brand" href="#">
             <img src="../image/Handyman.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
@@ -38,7 +38,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <div class="handyman-logout">
+                <div class="logout">
                     <li class="nav-item dropdown logout">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" 
                             aria-expanded="false">Logout

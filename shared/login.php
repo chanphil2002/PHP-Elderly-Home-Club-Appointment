@@ -113,7 +113,7 @@
             unset($_SESSION['failed-login']);
         }
     ?>
-    <div class="center" align="center">
+    <div class="login-box" align="center">
     <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
         <form method="post" action="">
             <h1>Handyman Login</h1>
