@@ -2,7 +2,7 @@
 
 <?php
     $senior_IC = $_SESSION['seniorlogin'];
-    $sql = "SELECT IC, CONCAT(fname, ' ',lname) AS `fullName`, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = $senior_IC";
+    $sql = "SELECT senior_IC, CONCAT(fname, ' ',lname) AS `fullName`, gender, address, phone_number, profile_picture FROM tbl_senior WHERE senior_IC = $senior_IC";
     $result = mysqli_query($conn, $sql);   
     $row = mysqli_fetch_array($result);
 
@@ -21,12 +21,16 @@
         $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
              ('$service_type', '$IC',900,90120,'pending','$service_description','$req_image')";
 
-        echo $sql;
         $query = mysqli_query($conn, $sql);
 
         if($query)
         {
-            $_SESSION['add'] = "added";
+            $_SESSION['added'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
                                 
             move_uploaded_file($tmp_name,"../image/request_service_image/$req_image");
             header("location:".SITEURL."1.senior/senior_homepage.php");
@@ -45,7 +49,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Request Service</title>
     <link rel="stylesheet" type="text/css" href="senior.css" />
 </head>
 
@@ -67,7 +71,7 @@
                 </div>
                 <div class="autofill-box col-md-6 mb-3">
                     <label for="IC">Identity Card No.</label>
-                    <input class="form-control" name="IC" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['IC']?>">
+                    <input class="form-control" name="IC" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['senior_IC']?>">
                 </div>
             </div>
             <div class="form-row">
@@ -94,16 +98,20 @@
                     <label for="service-type">Service Type</label>
                     <select class="form-control" name="service-type" required>Please Select
                         <option value="">Service Type</option>
-                        <option value="Bathroom Repair">Bathroom Repair</option>
-                        <option value="Ceiling Fan Repair">Ceiling Fan Repair</option>
-                        <option value="Deck and Patio Repair">Deck and Patio Repair</option>
-                        <option value="Door Repair">Door Repair</option>
-                        <option value="Furniture Repair">Furniture Repair</option>
-                        <option value="Flooring Repair">Flooring Repair</option>
-                        <option value="Gutter Repair">Gutter Repair</option>
-                        <option value="Kitchen Repair">Kitchen Repair</option>
-                        <option value="Wall Repair">Wall Repair</option>
-                        <option value="Window Repair">Window Repair</option>
+                        <?php
+                            $query = "SELECT service_type FROM `tbl_service`";
+                            $result = mysqli_query($conn, $query);
+                            $check_faculty = mysqli_num_rows($result) > 0;
+
+                            if($check_faculty) {
+                            while($row = mysqli_fetch_array($result))
+                            {
+                                ?>
+                                <option value="<?php echo $row['service_type']; ?>"><?php echo $row['service_type']; ?></option>
+                                <?php
+                            }
+                            }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -140,10 +148,6 @@
             </div>
         </form>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
