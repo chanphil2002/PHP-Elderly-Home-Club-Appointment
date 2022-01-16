@@ -33,7 +33,8 @@
                     <div class="popup">
                     <h2>Appointment Details(' .$value['ID'] . ')</h2>
                     <a class="close" href="#">x</a>
-                    <div class="data">
+                    <div class="info_data">
+                    <div class="data" style="width:30%;">
                     <h3>Name of Tenant</h3>
                     <p>' . $value['fname'] .' '. $value['lname'] .'<p>
                     <h3> Type of Repair </h3>
@@ -44,8 +45,9 @@
                     <p>' . $value['a_time'] .'<p>
                     <h3>Description</h3>
                     <p style="line-height: 1.5em; height: 3em;">' . $value['description'] . '</p>
-                    <div class="data">
-                    <img src="../img_upload/appointment/'<?php echo $row['profile_picture'];?>'" alt = "Profile Image">
+                    </div>
+                    <div class="data" style="width:25%;">
+                    <img src="../image/Handyman.png" alt = "Appointment Image">
                     </div>
                     </div>
                     </div>';

@@ -51,6 +51,11 @@
     line-height: 1.5em;
     height: 3em;
 }
+.data img{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
 /* Toggle Switch For Notification */
 .switch {
     position: relative;
@@ -147,7 +152,7 @@ td, th {
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
+    width: 50%;
     position: relative;
     transition: all 5s ease-in-out;
 }
@@ -168,7 +173,7 @@ td, th {
     color: #333;
 }
 .popup .content {
-    max-height: 30%;
+    max-height: 50%;
     overflow: auto;
 }
 /* Appointment Status Tabs */
