@@ -16,15 +16,13 @@
     <div class="wrapper">        
         <?php
         $page_id = '1';
-        $senior_IC = $_SESSION['seniorlogin'];
+        include '../shared/sidebar.php';
         //include php variable inside mysql
-        $stmt = $conn->prepare("SELECT IC, fname, lname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE IC = ?");
-        $stmt->bind_param("s", $senior_IC);
+        $stmt = $conn->prepare("SELECT IC, fname, lname, gender, address, phone_number FROM tbl_senior WHERE IC = ?");
+        $stmt->bind_param("s", $_SESSION['seniorlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = mysqli_fetch_array($result);        
-        include '../shared/sidebar.php';
-        $conn->close();
         ?> 
         <div class= "card_body">
             <div class="info">

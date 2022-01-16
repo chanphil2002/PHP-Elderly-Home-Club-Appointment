@@ -44,9 +44,17 @@
 </style>
 
 <aside>    
-    <?php if ($page_id < 3) { ?>
+    <?php
+    if ($page_id < 3) 
+    {        
+        $stmt = $conn->prepare("SELECT profile_picture FROM tbl_senior WHERE IC = ?");
+        $stmt->bind_param("s", $_SESSION['seniorlogin']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = mysqli_fetch_array($result);
+    ?>
     <div class="profile">
-        <img src="profile_pic.png">
+        <img src="../img_upload/senior/<?php echo $row['profile_picture'];?>" alt = "Profile Image">
     </div>
         <ul>    
             <li>
@@ -56,9 +64,15 @@
                 <a class="<?php echo ($page_id == "2" ? "active" : "")?>" href="senior_appointment.php">My Appointment</a>
             </li>
         </ul>
-    <?php } else { ?>
+    <?php } else 
+    { $stmt = $conn->prepare("SELECT profile_picture FROM tbl_handyman WHERE IC = ?");
+        $stmt->bind_param("s", $_SESSION['seniorlogin']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = mysqli_fetch_array($result);
+    ?>
     <div class="profile">
-        <img src="profile_pic.png">
+        <img src="../img_upload/handyman/<?php echo $row['profile_picture'];?>" alt = "Profile Image">
     </div>
     <ul>
         <li>
