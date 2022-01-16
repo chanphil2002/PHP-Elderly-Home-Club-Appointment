@@ -1,0 +1,158 @@
+html {
+    overflow-y : scroll;
+}
+
+h1 {
+    text-align:center;
+}
+
+._tabselection {
+    /* cursor: pointer; */
+    user-select: none;
+    padding: 16px 0;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: rgba(0,0,0,.8);
+    background: #fff;
+    border: 2px solid rgba(0,0,0,.09);
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    transition: color .2s;
+}
+
+._text {
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: transparent;
+}
+
+/* ._text:before{
+    position:absolute;
+    content:'';
+    top:-10px;
+    right:-10px;
+    left:-10px;
+    bottom:-10px;
+} */
+
+.tabs {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+._tabcontainer {
+    margin:auto;
+    position: relative;
+    flex-grow: 1;
+    width: 980px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: 28.6875rem;
+    min-width: 0;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
+    border-radius: 0.125rem;
+}
+
+._tabcontainer2 {
+    min-height: 740px;
+    background: rgb(245, 245, 245);
+    box-shadow: rgb(245 245 245) 0px 0px 0px 2px;
+}
+
+._oneproductbox {
+    margin: 12px 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    border-radius: 0.125rem;
+}
+
+._searchbar {
+    padding: 12px 0;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    color: #212121;
+    background: #eaeaea;
+    border-radius: 2px;
+}
+
+._searchbar>input {
+    flex: 1;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+}
+
+/* .productdisplay:first-child {
+    padding-top: 24px;
+} */
+
+.productdisplay {
+    padding: 12px 24px;
+    background: #fff;
+}
+
+.product:first-child {
+    margin: 0;
+    border: 0;
+}
+.product {
+    margin: 10px;
+    border-top: 1px;
+}
+
+.finalproductbox {
+    padding: 0 12px 0 0;
+    flex: 1;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.productbox {
+    padding: 12px 0 0;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: rgba(0,0,0,.87);
+}
+
+.empty {
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.emptytext{
+    margin: 20px 0 0;
+    font-size: 18px;
+    line-height: 1.4;
+    color: rgba(0,0,0,.8);
+}
+
+div {
+    display: block;
+}
+
