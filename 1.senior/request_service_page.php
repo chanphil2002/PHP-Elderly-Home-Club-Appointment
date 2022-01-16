@@ -14,25 +14,27 @@
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $service_type = $_POST['service-type'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
         $service_description = $_POST['service-description'];
         $req_image = $_FILES['image']['name'];
         $tmp_name = $_FILES['image']['tmp_name'];
 
         $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, `a_date`, `status`, `description`, `image`) VALUES
-             ('$service_type', '$IC',900,90120,'pending','$service_description','$req_image')";
+             ('$service_type', '$IC','$time','$date','pending','$service_description','$req_image')";
 
         $query = mysqli_query($conn, $sql);
 
         if($query)
         {
             $_SESSION['added'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            Request Service Submitted ! Please wait for our approval and always check your appointment in the "<strong>My Profile</strong>" section.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
-          </div>';
+        </div>';
                                 
-            move_uploaded_file($tmp_name,"../image/request_service_image/$req_image");
+            move_uploaded_file($tmp_name,"../img_upload/appointment/$req_image");
             header("location:".SITEURL."1.senior/senior_homepage.php");
         }
         else
@@ -122,7 +124,7 @@
                 </div>
                 <div class="input-box col-md-4 mb-3">
                     <label for="appt">Select a time:</label>
-                    <input type="time" id="appt" name="appt" required>
+                    <input type="time" name="time" required>
                 </div>
             </div>
             <div class="form-row">

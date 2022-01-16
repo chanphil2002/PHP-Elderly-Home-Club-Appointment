@@ -8,29 +8,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senior Homepage</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="senior.css" />
 </head>
 
 <body>
-        <?php
-            if(isset($_SESSION['login']))
-            {
-                echo $_SESSION['login'];
-                unset($_SESSION['login']);
-            }
-            if(isset($_SESSION['added']))
-            {
-                echo $_SESSION['added'];
-                unset($_SESSION['added']);
-            }
-            if(isset($_SESSION['added']))
-            {
-                ;
-            }
-        ?>
+    <?php
+        if(isset($_SESSION['login']))
+        {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
+        if(isset($_SESSION['added']))
+        {
+            echo $_SESSION['added'];
+            unset($_SESSION['added']);
+        }
+    ?>
 
     <section id="hero" class="d-flex align-items-center">
-
     <div class="container">
     <div class="row">
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
