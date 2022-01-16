@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../shared/profile.css">
-    <title>Profile Settings</title>
+    <title>My Profile</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         $page_id = '1';
         include '../shared/sidebar.php';
         //include php variable inside mysql
-        $stmt = $conn->prepare("SELECT IC, fname, lname, gender, address, phone_number FROM tbl_senior WHERE IC = ?");
+        $stmt = $conn->prepare("SELECT senior_IC, fname, lname, gender, address, phone_number FROM tbl_senior WHERE senior_IC = ?");
         $stmt->bind_param("s", $_SESSION['seniorlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -40,7 +40,7 @@
                         <h3>Last Name</h3>
                         <p><?php echo $row['lname'] ?></p>
                         <h3>Identity Card No.</h3>
-                        <p><?php echo $row['IC'] ?></p>                        
+                        <p><?php echo $row['senior_IC'] ?></p>                        
                     </div>
                 </div>
             </div>

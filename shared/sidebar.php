@@ -5,6 +5,7 @@
     width: 300px;
     height: 625px;
     margin-left: 225px;
+    margin-top: 30px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;    
     }
@@ -40,6 +41,7 @@
     aside ul li a.active{
         background-color: #F8584D;
         color: white;
+        text-decoration: none;
     }
 </style>
 
@@ -47,7 +49,7 @@
     <?php
     if ($page_id < 3) 
     {        
-        $stmt = $conn->prepare("SELECT profile_picture FROM tbl_senior WHERE IC = ?");
+        $stmt = $conn->prepare("SELECT profile_picture FROM tbl_senior WHERE senior_IC = ?");
         $stmt->bind_param("s", $_SESSION['seniorlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -65,8 +67,8 @@
             </li>
         </ul>
     <?php } else 
-    { $stmt = $conn->prepare("SELECT profile_picture FROM tbl_handyman WHERE IC = ?");
-        $stmt->bind_param("s", $_SESSION['seniorlogin']);
+    { $stmt = $conn->prepare("SELECT profile_picture FROM tbl_handyman WHERE handyman_IC = ?");
+        $stmt->bind_param("s", $_SESSION['handymanlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = mysqli_fetch_array($result);

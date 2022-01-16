@@ -18,7 +18,7 @@
             include '../shared/sidebar.php';
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $result = $conn->query("SELECT * FROM `tbl_appointment` WHERE status = 'approved' ORDER BY a_date ASC, a_time ASC;");
+            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY date ASC, time ASC;");
             $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             //popup for appointment details
@@ -26,15 +26,15 @@
             {
                 echo'<div id="'. $popup_id .'" class="overlay">
                     <div class="popup">
-                    <h2>Appointment Details</h2>
+                    <h2>Appointment Details(' .$value['ID'] . ')</h2>
                     <a class="close" href="#">x</a>
                     <div class="data">
                     <h3>Name of Tenant</h3>
-                    <p>' . $value['appointment_id'] . '<p>
+                    <p>' . $value['ID'] . '<p>
                     <h3> Type of Repair </h3>
-                    <p>' . $value['appointment_id'] . '</p>
+                    <p>' . $value['ID'] . '</p>
                     <h3>Reminder for The Agent</h3>
-                    <p style="line-height: 1.5em; height: 3em;">' . $value['appointment_id'] . '</p>
+                    <p style="line-height: 1.5em; height: 3em;">' . $value['ID'] . '</p>
                     </div>
                     </div>
                     </div>';
