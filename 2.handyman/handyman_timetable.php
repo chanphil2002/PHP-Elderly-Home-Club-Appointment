@@ -26,6 +26,8 @@
             WHERE a.status = 'to be completed' AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
             $result = $conn->query($query);
             $rows = $result->fetch_all(MYSQLI_ASSOC);
+            $sql = "SELECT fname, lname FROM tbl_handyman WHERE handyman_IC = '$handyman_IC'";
+            $result2 = $conn->query($sql);
             //popup for appointment details
             function popup($value, $popup_id)
             {
@@ -71,7 +73,10 @@
         ?>
         <div class= "card_body">
             <div class="info">
-                <h1>Lee's Timetable</h1>        
+                <h1><?php while($rows2 = mysqli_fetch_array($result2))
+                {
+                    echo $rows2['fname'];
+                } ?>'s Timetable</h1>        
                 <table>
                     <tr>
                         <th></th>

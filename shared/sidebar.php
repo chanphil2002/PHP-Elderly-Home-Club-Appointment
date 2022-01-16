@@ -1,6 +1,6 @@
 <style>
     aside{
-    background-image: linear-gradient(#ff9898, #ffc7c7);
+    background-image: linear-gradient(#fbbee0, #ffc7c7);
     position: relative;
     width: 300px;
     height: 625px;

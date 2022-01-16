@@ -9,20 +9,22 @@
 .card_body{
     flex-grow: 100;
     margin-right: 225px;
-    background: #fff;
+    margin-top: 30px;
+    background: #f6f7fc;
     padding: 30px 25px;
     border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;  
+    border-bottom-right-radius: 15px;
 }
 .info h1{
     margin-bottom: 50px;
     margin-top: 35px;
-    padding-bottom: 50px;
+    padding-bottom: 35px;
     border-bottom: 1px solid #e0e0e0;
     color: #353c4e;
     text-transform: uppercase;
     letter-spacing: 5px;
     text-align: center;
+    width: 550px;
 }
 .info_data{
     display: flex;
