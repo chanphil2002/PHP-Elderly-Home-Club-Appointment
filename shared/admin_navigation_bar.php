@@ -46,27 +46,26 @@
                     <a class="nav-link" href="../senior/service_page.php">Timetables<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../senior/request_servicepage.php">Service Status</a>
+                    <a class="nav-link " href="../admin/3.admin/ServiceStatus.php">Service Status</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="../senior/request_servicepage.php">Incoming Requests</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Registration
+                    Manage Account
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item inactiveLink" href="#">Register Account for:</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Senior</a>
                         <a class="dropdown-item" href="#">Handyman</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage Profile
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item inactiveLink" href="#">Edit Account of:</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Senior</a>
                         <a class="dropdown-item" href="#">Handyman</a>
+
                     </div>
                 </li>
                 <div class="logout">

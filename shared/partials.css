@@ -13,7 +13,7 @@ html {
   overflow-y : scroll;
   }
 
-li, a, button {
+.login-box li, a, button {
     font-size: 16px;
     color: #ffffff;
     text-decoration: none;
@@ -93,7 +93,7 @@ li, a, button {
   }
 
   
-  select {
+  .login-box select {
     /* Reset Select */
     appearance: none;
     outline: 0;
@@ -107,11 +107,11 @@ li, a, button {
     cursor: pointer;
   }
   /* Remove IE arrow */
-  select::-ms-expand {
+  .login-box select::-ms-expand {
     display: none;
   }
   /* Custom Select wrapper */
-  .select {
+  .login-box .select {
     position: relative;
     display: flex;
     width: 10em;
@@ -121,7 +121,7 @@ li, a, button {
     overflow: hidden;
   }
   /* Arrow */
-  .select::after {
+  .login-box .select::after {
     content: '\25BC';
     color: #fff;
     position: absolute;
@@ -133,7 +133,7 @@ li, a, button {
     pointer-events: none;
   }
   /* Transition */
-  .select:hover::after {
+  .login-box .select:hover::after {
     color: #a38599;
   }
 
@@ -152,7 +152,7 @@ li, a, button {
 }
 
 .handyman-logout {
-  padding-left: 30em;
+    margin-left: 27em;
 }
 
 /* Logo */
@@ -193,4 +193,9 @@ button:hover {
     padding: 25px 30px;
     border-radius: 5px;
 
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
 }

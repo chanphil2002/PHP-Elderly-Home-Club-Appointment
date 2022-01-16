@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
 <input type="text" name="lname" id="lname" class="input-text" required>
 </div>
 <div class="form-row">
-<label for="gender">GENDER *</label><br>
+<label for="gender">GENDER *</label>
 <select name="gender" id="gender" style="height: 25px; margin-top: 3%;" >
     <option value="">Choose Your Gender *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
     <option value="Male">Male</option>
