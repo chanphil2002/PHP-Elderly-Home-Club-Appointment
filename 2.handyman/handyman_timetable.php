@@ -44,6 +44,8 @@
                     <p>' . $value['a_time'] .'<p>
                     <h3>Description</h3>
                     <p style="line-height: 1.5em; height: 3em;">' . $value['description'] . '</p>
+                    <div class="data">
+                    <img src="../img_upload/appointment/'<?php echo $row['profile_picture'];?>'" alt = "Profile Image">
                     </div>
                     </div>
                     </div>';
