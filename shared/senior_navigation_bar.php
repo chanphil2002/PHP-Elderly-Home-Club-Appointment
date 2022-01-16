@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="partials.css" />
+    <link rel="stylesheet" type="text/css" href="../shared/partials.css" />
 </head>
 
 <body>
@@ -35,7 +35,7 @@
         <a class="navbar-brand" href="../1.senior/senior_homepage.php">
             <img src="../image/Handyman.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
-        <a class="navbar-brand" href="../1.senior/senior_homepage.php">Senior Dashboard</a>
+        <a class="navbar-brand" href="../1.senior/senior_homepage.php">Handyman</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
+                    <a class="nav-link" href="../1.senior/senior_homepage.php">Homepage<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../1.senior/service_page.php">Services<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -52,15 +55,17 @@
                 <li class="nav-item">
                     <a class="nav-link " href="../1.senior/senior_profile.php">My Profile<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Logout
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
-                    </div>
-                </li>
+                <div class="logout">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Logout
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
+                        </div>
+                    </li>
+                </div>
             </ul>
 
         </div>

@@ -15,40 +15,39 @@
 </head>
 
 <body class="login_page">
-<?php
-            if(isset($_SESSION['login']))
-            {
-                echo $_SESSION['login'];
-                unset($_SESSION['login']);
-            }
-        ?>
-    <div class="container" align="center">
-        <br><br><br>
-        <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
-        <div class="login_box">
-            <form method="post" action="">
-                <div>
-                    <label for="UserID">UserID</label>
-                    <br>
-                    <input type="text" name="userid" placeholder="UserID" required>
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <br>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div>
-                    <select name="user-type" required>
-                        <option value="">Select User:</option>
-                        <option value="senior">Senior</option>
-                        <option value="handyman">Handyman</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <hr>
-                <button type="submit" name="submit" value="login">Log In</button>
-            </form>
-        </div>
+    <?php
+        if(isset($_SESSION['failed-login']))
+        {
+            echo $_SESSION['failed-login'];
+            unset($_SESSION['failed-login']);
+        }
+    ?>
+    <div class="center" align="center">
+    <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
+        <form method="post" action="">
+            <h1>Handyman Login</h1>
+            <form method="post">
+            <div class="txt_field">
+                <input name="userid" type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input name="password" type="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="select">
+                <select name="user-type" required>
+                    <option value="">Login As:</option>
+                    <option value="senior">Senior</option>
+                    <option value="handyman">Handyman</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" name="submit" value="login">Log In</button>
+        </form>
     </div>
 
 </body>
@@ -87,7 +86,8 @@
             }
             else 
             {
-                $_SESSION['login'] = "<div class='success'>Login failed, please try again.</div>";
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
             }
         }
 
@@ -109,7 +109,8 @@
             }
             else 
             {
-                $_SESSION['login'] = "<div class='success'>Login failed, please try again.</div>";
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
             }
         }
 
@@ -131,7 +132,8 @@
             }
             else 
             {
-                $_SESSION['login'] = "<div class='success'>Login failed, please try again.</div>";
+                $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
+                header("location:".SITEURL."shared/login.php");
             }
         }
 	}
