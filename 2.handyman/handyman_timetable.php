@@ -18,7 +18,7 @@
             include '../shared/sidebar.php';
             
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $result = $conn->query("SELECT * FROM `tbl_appointments` WHERE status = 'approved' ORDER BY date ASC, time ASC;");
+            $result = $conn->query("SELECT * FROM `tbl_appointment` WHERE status = 'approved' ORDER BY a_date ASC, a_time ASC;");
             $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             //popup for appointment details
@@ -43,7 +43,6 @@
             //function to determine appointment details for table cells
             function occupy($value, $time, $days)
             {
-<<<<<<< HEAD
                 $FirstDay = date("Y-m-d", strtotime('sunday last week'));
                 $LastDay = date("Y-m-d", strtotime('sunday this week'));
                     if ($value['a_date'] > $FirstDay && $value['a_date'] < $LastDay)
@@ -54,13 +53,6 @@
                             popup($value, $days.$time);
                         }
                     }
-=======
-                if (($value['time'] == $time) and (date('l', strtotime($value['date'])) == $days))
-                {
-                    echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
-                    popup($value, $days.$time);
-                }
->>>>>>> f38d1a274ad94b2b07ba709bae792343fc1492d5
         }
         ?>
         <div class= "card_body">
