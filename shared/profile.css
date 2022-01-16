@@ -120,13 +120,13 @@ td, th {
     font-size: 1em;
     padding: 8px 14px;
     border: 1px solid #750000;
-    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-out;
 }
 .button:hover {
     background: #cc3636;
     color: white;
+    text-decoration: none;
 }
   
 /* Overlay (When popup shows)  */
