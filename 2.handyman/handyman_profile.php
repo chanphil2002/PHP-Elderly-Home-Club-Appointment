@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../shared/profile.css">
-    <title>My Profile</title>
+    <title>Profile Settings</title>
 </head>
 
 <body>
@@ -26,24 +26,21 @@
             <div class="info">
                 <h1>My Profile</h1>
                 <div class="info_data">
-                <div class="data">
+                    <div class="data">
                         <h3>First Name</h3>
-                        <p><?php echo $row['fname'] ?></p>
+                        <p>Lee</p>
                         <h3>Gender</h3>
-                        <p><?php echo $row['gender'] ?></p>
+                        <p>Male</p>
                         <h3>Address</h3>
-                        <p><span><?php echo $row['address'] ?></span></p>
-                        <br>
-                        <h3>Specialised Skill</h3>                        
-                        <p><?php echo $row['skills'] ?></p>  
+                        <p><span>Jalan SS26/6, Taman Mayang Jaya, 473044</span></p>
+                        <h3>Specialized Skills</h3>
+                        <p>Plumber</p>
                     </div>
                     <div class="data">
                         <h3>Last Name</h3>
-                        <p><?php echo $row['lname'] ?></p>
+                        <p>Wei</p>
                         <h3>Identity Card No.</h3>
-                        <p><?php echo $row['handyman_IC'] ?></p>
-                        <h3>Phone Number</h3>
-                        <p><?php echo $row['phone_number'] ?></p>   
+                        <p>012345-78-9999</p>                        
                     </div>
                 </div>
             </div>
