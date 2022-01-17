@@ -60,7 +60,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../3.admin/Senior Registration Form.php">New Senior Account</a>
                         <a class="dropdown-item" href="../3.admin/Handyman Registration Form.php">New Handyman Account</a>
-                        <a class="dropdown-item" href="../3.admin/Create Service Form.php">New Service Type</a>
+                        <a class="dropdown-item" href="../3.admin/Service Registration Form.php">New Service Type</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item inactiveLink" href="#">Edit:</a>
                         <div class="dropdown-divider"></div>

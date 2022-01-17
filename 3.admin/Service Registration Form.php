@@ -9,19 +9,19 @@ session_start();
 if (isset($_POST['submit'])) {
 	$service_type = $_POST['service-type'];
 	$description = $_POST['description'];
-	$service_image = $_FILES['profile_picture']['name'];
-	$tmp_name = $_FILES['profile_picture']['tmp_name'];
+	$service_image = $_FILES['service-image']['name'];
+	$tmp_name = $_FILES['service-image']['tmp_name'];
 
     $sql = "SELECT * FROM tbl_service WHERE service_type='$service_type'";
     $result = mysqli_query($conn, $sql);
     if (!$result->num_rows > 0) {
     	$upload = "INSERT INTO tbl_service VALUES ('$service_type', 
-            '$description','$address','$service_image')";
+            '$description','$service_image')";
 		$run_upload = mysqli_query($conn,$upload);
 		if($run_upload === true) {
 			echo "<script>alert('Registration Complete!')</script>";
 			echo "<script> window.location.assign('../shared/login.php'); </script>"; 
-			move_uploaded_file($tmp_name,"img_upload/service_type/$service_image");
+			move_uploaded_file($tmp_name,"../img_upload/service_type/$service_image");
 		}else {
 			echo "Failed, Try Again";
 		}
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>Service Type Registration Page</title>
+<title>Service Registration Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="HandymanRegistration.css" />
 <meta name="robots" content="noindex, follow">
@@ -48,17 +48,17 @@ if (isset($_POST['submit'])) {
         </div>
         <form class="form-detail" action="#" method="post" id="myform"  enctype="multipart/form-data">
             <div class="form-row">
-                <strong><h2 class="text-1">Service Type Registration Page</h2></strong>
-<label for="service_type">Service Type *</label>
+                <strong><h2 class="text-1">Service Registration Page</h2></strong>
+<label for="service-type">Service Type *</label>
 <input type="text" name="service-type" class="input-text">
 </div>
 <div class="form-row">
-<label for="lname">Description *</label>
-<input type="text" name="lname" class="input-text" required>
+<label for="description">Description *</label>
+<input type="text" name="description" class="input-text" required>
 </div>
 <div class="form-row">
-	<br><br><label for="service_image">Upload Service Type Image *</label><br><br>
-	<input type="file" name="service_image">
+	<br><br><label for="service-image">Upload Service Type Image *</label><br><br>
+	<input type="file" name="service-image" required>
 	<br>
 	<br>
 </div>

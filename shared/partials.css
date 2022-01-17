@@ -176,10 +176,9 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
-    border-color: #E63E6D;
-    background-color: #be384c;
-    transition: all 0.3s ease 0s;
+button:not(.close):hover {
+  border-color: #E63E6D;
+  background-color: #be384c;
 }
 
 .custom-container {
