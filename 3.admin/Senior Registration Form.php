@@ -13,21 +13,20 @@ if (isset($_POST['submit'])) {
 	$IC = $_POST['IC'];
 	$phone_number = $_POST['phone_number'];
     $address = $_POST['address'];
-	$skills = $_POST['skills'];
 	$password = $_POST['password'];
 	$profile_picture = $_FILES['profile_picture']['name'];
 	$tmp_name = $_FILES['profile_picture']['tmp_name'];
 
-    $sql = "SELECT * FROM tbl_handyman WHERE IC='$IC'";
+    $sql = "SELECT * FROM tbl_senior WHERE senior_IC='$IC'";
     $result = mysqli_query($conn, $sql);
     if (!$result->num_rows > 0) {
-    	$upload = "INSERT INTO tbl_handyman  VALUES ('$IC', 
-            '$fname','$lname', '$gender', '$skills', '$address','$phone_number', '$password','$profile_picture')";
+    	$upload = "INSERT INTO tbl_senior  VALUES ('$IC', 
+            '$fname','$lname', '$gender', '$address','$phone_number', '$password','$profile_picture')";
 		$run_upload = mysqli_query($conn,$upload);
 		if($run_upload === true) {
 			echo "<script>alert('Registration Complete!')</script>";
 			echo "<script> window.location.assign('../shared/login.php'); </script>"; 
-			move_uploaded_file($tmp_name,"img_upload/handyman/$profile_picture");
+			move_uploaded_file($tmp_name,"img_upload/senior/$profile_picture");
 		}else {
 			echo "Failed, Try Again";
 		}
@@ -41,7 +40,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>Handyman Registration Page</title>
+<title>Senior Registration Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="HandymanRegistration.css" />
 <meta name="robots" content="noindex, follow">
@@ -54,7 +53,7 @@ if (isset($_POST['submit'])) {
         </div>
         <form class="form-detail" action="#" method="post" id="myform"  enctype="multipart/form-data">
             <div class="form-row">
-                <strong><h2 class="text-1">Handyman Registration Page</h2></strong>
+                <strong><h2 class="text-1">Senior Registration Page</h2></strong>
 <label for="fname">FIRST NAME *</label>
 <input type="text" name="fname" id="fname" class="input-text">
 </div>
@@ -86,16 +85,6 @@ if (isset($_POST['submit'])) {
 <label for="address">Address *</label>
 <input type="text" name="address" id="address" class="input-text" required>
 </div>
-<div class="form-row">
-<label for="skills">Specialized Skills *</label><br>
-<select name="skills" id="skills" style="height:25px; margin-top: 3%;">
-    <option value="">Choose Your Skills &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-    <option value="SkillA">SkillA</option>
-    <option value="SkillB">SkillB</option>
-    <option value="SkillC">SkillC</option>
-</select>
-</div>
-
 <div class="form-row">
 	<br><br><label for="profile_picture">Upload Handyman's Image *</label><br><br>
 	<input type="file" name="profile_picture" id="profile_picture">
