@@ -67,12 +67,13 @@ if (isset($_POST['submit'])) {
 				</div>
 				<div class="form-row">
 					<label for="gender">GENDER *</label>
-					<select name="gender" id="gender" style="height: 25px; margin-top: 3%;" required>
+					<select class="form-row" name="gender" id="gender" style="height: 25px; margin-top: 3%;" required>
 						<option value="">Choose Your Gender *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
 					</select>
 				</div>
+				<br>
 				<div class="form-row">
 					<br><label for="IC">Identity Card Number *</label>
 					<input type="text" name="IC" id="IC" class="input-text" required>
@@ -90,15 +91,15 @@ if (isset($_POST['submit'])) {
 					<input type="text" name="address" id="address" class="input-text" required>
 				</div>
 				<div class="form-row">
-					<label for="skills">Specialized Skills *</label><br>
-					<select name="skills" id="skills" style="height:25px; margin-top: 3%;">
+					<label for="skills">Specialized Skills *</label>
+					<select class="form-row" name="skills" id="skills" style="height:25px; margin-top: 3%;">
 						<option value="">Choose Your Skills &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 						<option value="SkillA">SkillA</option>
 						<option value="SkillB">SkillB</option>
 						<option value="SkillC">SkillC</option>
 					</select>
 				</div>
-
+				<br>
 				<div class="form-row">
 					<br><br><label for="profile_picture">Upload Handyman's Image *</label><br><br>
 					<input type="file" name="profile_picture" id="profile_picture" accept="image/*">

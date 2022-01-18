@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['adminlogin'])) {
     $_SESSION['no-login-message'] = "<div class='error'>Please login to access Admin Panel.</div>";
-    header("location:" . SITEURL . "shared/login.php");
+    header("location:" . SITEURL . "index.php");
 }
 ?>
 
@@ -38,8 +38,8 @@ if (!isset($_SESSION['adminlogin'])) {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../3.admin/search_worker_timetable.php">Timetables<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../3.admin/search_worker_timetable.php">Timetables</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="../3.admin/ServiceStatus.php">Service Status</a>
@@ -60,9 +60,9 @@ if (!isset($_SESSION['adminlogin'])) {
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item inactiveLink" href="#">Edit:</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Senior Account</a>
-                        <a class="dropdown-item" href="#">Handyman Account</a>
-                        <a class="dropdown-item" href="#">Service Type</a>
+                        <a class="dropdown-item" href="../3.admin/View Senior Profile.php">Senior Account</a>
+                        <a class="dropdown-item" href="../3.admin/View Handyman Profile.php">Handyman Account</a>
+                        <a class="dropdown-item" href="../3.admin/View Service Type.php">Service Type</a>
 
                     </div>
                 </li>
@@ -73,7 +73,7 @@ if (!isset($_SESSION['adminlogin'])) {
                             Logout
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
+                            <a class="dropdown-item" href="../index.php">Are you sure?</a>
                         </div>
                     </li>
                 </div>

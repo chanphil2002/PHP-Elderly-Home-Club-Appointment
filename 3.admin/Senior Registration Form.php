@@ -66,12 +66,13 @@ if (isset($_POST['submit'])) {
 				</div>
 				<div class="form-row">
 					<label for="gender">GENDER *</label>
-					<select name="gender" id="gender" style="height: 25px; margin-top: 3%;" required>
+					<select class="form-row" name="gender" id="gender" style="height: 25px; margin-top: 3%;" required>
 						<option value="">Choose Your Gender *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
 					</select>
 				</div>
+				<br>
 				<div class="form-row">
 					<br><label for="IC">Identity Card Number *</label>
 					<input type="text" name="IC" id="IC" class="input-text" required>

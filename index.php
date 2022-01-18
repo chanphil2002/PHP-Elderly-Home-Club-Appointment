@@ -1,4 +1,4 @@
-<?php include('../config/constants.php'); ?>
+<?php include('config/constants.php'); ?>
 
 <?php
 session_start();
@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['adminlogin'] = $username;
             unset($_SESSION['seniorlogin']);
             unset($_SESSION['handymanlogin']);
-            header("location:" . SITEURL . "3.admin/Handyman Registration Form.php");
+            header("location:" . SITEURL . "3.admin/Incoming Service Request.php");
             exit;
         } else {
             $_SESSION['failed-login'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
@@ -113,11 +113,11 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="partials.css" />
+    <link rel="stylesheet" type="text/css" href="shared/partials.css" />
     <script language="javascript" type="text/javascript">
         window.history.forward();
     </script>
@@ -126,9 +126,9 @@ if (isset($_POST['submit'])) {
 <body class="login_page">
 
     <div class="login-box" align="center">
-        <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
+        <img class="logo" align="center" src="image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
         <form method="post" action="">
-            <h1>Wrenchman Login</h1>
+            <h1>User Login</h1>
             <div>
                 <?php
                 if (isset($_SESSION['failed-login'])) {
