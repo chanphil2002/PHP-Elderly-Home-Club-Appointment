@@ -94,9 +94,19 @@ if (isset($_POST['submit'])) {
 					<label for="skills">Specialized Skills *</label>
 					<select class="form-row" name="skills" id="skills" style="height:25px; margin-top: 3%;">
 						<option value="">Choose Your Skills &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-						<option value="SkillA">SkillA</option>
-						<option value="SkillB">SkillB</option>
-						<option value="SkillC">SkillC</option>
+						<?php
+						$query = "SELECT service_type FROM `tbl_service`";
+						$result = mysqli_query($conn, $query);
+						$check_faculty = mysqli_num_rows($result) > 0;
+
+						if ($check_faculty) {
+							while ($row = mysqli_fetch_array($result)) {
+						?>
+								<option value="<?php echo $row['service_type']; ?>"><?php echo $row['service_type']; ?></option>
+						<?php
+							}
+						}
+						?>
 					</select>
 				</div>
 				<br>
