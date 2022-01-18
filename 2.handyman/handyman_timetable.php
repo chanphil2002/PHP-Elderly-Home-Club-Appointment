@@ -28,6 +28,12 @@
             $rows = $result->fetch_all(MYSQLI_ASSOC);
             $sql = "SELECT fname, lname FROM tbl_handyman WHERE handyman_IC = '$handyman_IC'";
             $result2 = $conn->query($sql);
+
+            //dropdown variable
+            $thisweek = 'sunday last week';
+            $nextweek = 'sunday this week';
+            $nextweekplus1 = 'sunday next week';
+
             //popup for appointment details
             function popup($value, $popup_id)
             {
@@ -60,7 +66,7 @@
             function occupy($value, $time, $days)
             {
                 $FirstDay = date("Y-m-d", strtotime('sunday last week'));
-                $LastDay = date("Y-m-d", strtotime('sunday this week'));
+                $LastDay = date("Y-m-d", strtotime('sunday last week +1 week'));
                     if ($value['a_date'] > $FirstDay && $value['a_date'] < $LastDay)
                     {    
                         if (($value['a_time'] == $time) and (date('l', strtotime($value['a_date'])) == $days))
@@ -71,12 +77,28 @@
                     }
         }
         ?>
-        <div class= "card_body">
+        <script>
+            var getweek;
+            $("#week").change(function() {
+            getweek = $(this).val();
+            //use rfiSchooldropdown
+            }).change();
+            printIn("hello");
+        </script>
+        <div class= "card_body">        
             <div class="info">
                 <h1><?php while($rows2 = mysqli_fetch_array($result2))
                 {
                     echo $rows2['fname'];
-                } ?>'s Timetable</h1>        
+                } ?>'s Timetable</h1>
+                <form method="post" action="">
+                    <label for="week"></label>
+                        <select name="week" id="week" onchange="getweek(this)">
+                            <option value="<?php $thisweek ?>"><?php echo date("dS F Y", strtotime('monday this week'));?></option>
+                            <option value="<?php $nextweek ?>"><?php echo date("dS F Y", strtotime('monday next week'));?></option>
+                            <option value="<?php $nextweekplus1 ?>"><?php echo date("dS F Y", strtotime('monday next week +1 week'));?></option>
+                        </select>
+                </form>                   
                 <table>
                     <tr>
                         <th></th>
