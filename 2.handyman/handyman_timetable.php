@@ -88,7 +88,7 @@
                         popup($value, $days.$time);
                     }
                 }
-        }
+            }
         ?>        
         <div class= "card_body">        
             <div class="info">
