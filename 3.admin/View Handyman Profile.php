@@ -23,7 +23,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 <body>
 
-    <h1 style="margin-top: 3%;">Modify Handyman Profile Page</h1><br>
+    <h2 style="margin-top: 3%;">Modify Handyman Profile Page</h2><br>
     <form class="search" method="post">
         <input type="text" autocomplete="off" placeholder="Search By Handyman ID" name="handyman_IC" />
         <input type="submit" style="position: absolute; left: -9999px;" />
