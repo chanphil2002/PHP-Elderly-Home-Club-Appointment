@@ -359,6 +359,6 @@ button:not(.close):hover {
 }
   
 .profile img{
-    height : 20%;
-    width : 30%;
+    height : 100%;
+    width : 100%;
 }
