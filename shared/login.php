@@ -2,8 +2,6 @@
 
 <?php
     session_start();
-    session_destroy();
-    session_start();
     //Check whether the submit button is clicked or not
     if(isset($_POST['submit']))
     {
@@ -41,7 +39,7 @@
             else 
             {
                 $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
+                // header("location:".SITEURL."shared/login.php");
             }
         }
 
@@ -70,9 +68,11 @@
                 exit;
             }
             else 
-            {
+            {   
+                echo "sen";
                 $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
+                // header("location:".SITEURL."shared/login.php");
+                echo $_SESSION['failed-login'];
             }
         }
 
@@ -101,7 +101,7 @@
             else 
             {
                 $_SESSION['failed-login'] = "<div class='success'>Login failed, please try again.</div>";
-                header("location:".SITEURL."shared/login.php");
+                // header("location:".SITEURL."shared/login.php");
             }
         }
 	}
@@ -122,17 +122,18 @@
 </head>
 
 <body class="login_page">
-    <?php
+    
+    <div class="login-box" align="center">
+    <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
+        <form method="post" action="">
+            <h1>Handyman Login</h1>
+            <?php
         if(isset($_SESSION['failed-login']))
         {
             echo $_SESSION['failed-login'];
             unset($_SESSION['failed-login']);
         }
     ?>
-    <div class="login-box" align="center">
-    <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
-        <form method="post" action="">
-            <h1>Handyman Login</h1>
             <form method="post">
             <div class="txt_field">
                 <input name="userid" type="text" required>
