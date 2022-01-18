@@ -64,7 +64,7 @@
                     <?php
                     $tobecompleted = mysqli_query($conn, "SELECT ID, senior_IC, handyman_IC, a_time, a_date, status, description, image FROM tbl_appointment WHERE status = 'To Be Completed'");
                     while ($tobecompleted_rows = mysqli_fetch_array($tobecompleted)) {
-                        echo "<h4> Appointment ID : " . $tobecompleted_rows['ID'] . "</h4>";
+                        echo "<h3> Appointment ID : " . $tobecompleted_rows['ID'] . "</h3>";
                         echo "<h4> Senior IC : " . $tobecompleted_rows['senior_IC'] . "</h4>";
                         echo "<h4> Handyman IC : " . $tobecompleted_rows['handyman_IC'] . "</h4>";
                         echo "<h4> Status : " . $tobecompleted_rows['status'] . "</h4>";
@@ -72,7 +72,20 @@
                         echo "<h4> Date : " . $tobecompleted_rows['a_date'] . "</h4>";
                         echo "<h4> Time : " . $tobecompleted_rows['a_time'] . "</h4>";
                         echo '<div class="profile">';
-                        echo "<img src='../img_upload/appointment/" . $tobecompleted_rows['image'] . "'>";
+                        echo '<div class="responsive">';
+                        echo '<div class="gImg">';
+                        echo '<img src="../img_upload/appointment/' . $tobecompleted_rows['image'] . '">
+                            </div>
+                            </div>
+        
+                            <div class="clearfix"></div>
+        
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
+                            <span class="close">×</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div>';
                         echo "</div><hr>";
                     }
                     ?>
@@ -83,7 +96,7 @@
                     <?php
                     $completed = mysqli_query($conn, "SELECT ID, senior_IC, handyman_IC, a_time, a_date, status, description, image FROM tbl_appointment WHERE status = 'Completed'");
                     while ($completed_rows = mysqli_fetch_array($completed)) {
-                        echo "<h4> Appointment ID : " . $completed_rows['ID'] . "</h4>";
+                        echo "<h3> Appointment ID : " . $completed_rows['ID'] . "</h3>";
                         echo "<h4> Senior IC : " . $completed_rows['senior_IC'] . "</h4>";
                         echo "<h4> Handyman IC :" . $completed_rows['handyman_IC'] . "</h4>";
                         echo "<h4> Status : " . $completed_rows['status'] . "</h4>";
@@ -91,7 +104,20 @@
                         echo "<h4> Date : " . $completed_rows['a_date'] . "</h4>";
                         echo "<h4> Time : " . $completed_rows['a_time'] . "</h4>";
                         echo '<div class="profile">';
-                        echo "<img src='../img_upload/appointment/" . $completed_rows['image'] . "'>";
+                        echo '<div class="responsive">';
+                        echo '<div class="gImg">';
+                        echo '<img src="../img_upload/appointment/' . $completed_rows['image'] . '">
+                            </div>
+                            </div>
+        
+                            <div class="clearfix"></div>
+        
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
+                            <span class="close">×</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div>';
                         echo "</div><hr>";
                     }
                     ?>
@@ -102,7 +128,7 @@
                     <?php
                     $rejected = mysqli_query($conn, "SELECT ID, senior_IC, handyman_IC, a_time, a_date, status, description, image FROM tbl_appointment WHERE status = 'Rejected'");
                     while ($rejected_rows = mysqli_fetch_array($rejected)) {
-                        echo "<h4> Appointment ID : " . $rejected_rows['ID'] . "</h4>";
+                        echo "<h3> Appointment ID : " . $rejected_rows['ID'] . "</h3>";
                         echo "<h4> Senior IC : " . $rejected_rows['senior_IC'] . "</h4>";
                         echo "<h4> Handyman IC : " . $rejected_rows['handyman_IC'] . "</h4>";
                         echo "<h4> Status : " . $rejected_rows['status'] . "</h4>";
@@ -110,7 +136,20 @@
                         echo "<h4> Date : " . $rejected_rows['a_date'] . "</h4>";
                         echo "<h4> Time : " . $rejected_rows['a_time'] . "</h4>";
                         echo '<div class="profile">';
-                        echo "<img src='../img_upload/appointment/" . $rejected_rows['image'] . "'>";
+                        echo '<div class="responsive">';
+                        echo '<div class="gImg">';
+                        echo '<img src="../img_upload/appointment/' . $rejected_rows['image'] . '">
+                            </div>
+                            </div>
+        
+                            <div class="clearfix"></div>
+        
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
+                            <span class="close">×</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div>';
                         echo "</div><hr>";
                     }
                     ?>

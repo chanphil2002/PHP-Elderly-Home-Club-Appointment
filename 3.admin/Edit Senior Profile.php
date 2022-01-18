@@ -57,7 +57,7 @@ if (isset($_REQUEST['Save'])) {
         <div class="col-sm-6 mt-5 jumbotron" style="margin-right:7%">
             <form action="" method="POST">
                 <div class="profile">
-                    <img src="img_upload/senior/<?php
+                    <img src="../img_upload/senior/<?php
                                                 if (!$rows2) {
                                                     echo 'profile-picture.png';
                                                 } else {
