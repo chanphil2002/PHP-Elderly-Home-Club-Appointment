@@ -141,7 +141,7 @@ button:not(.close):hover {
     background-color: #f1f1f1;
 }
 .tab button {
-    background-image: linear-gradient(#fbbee0, #ffc7c7);
+    background-color: #F8584D;
     width: 25%;
     float: left;
     border: none;
@@ -152,10 +152,10 @@ button:not(.close):hover {
     font-size: large;
 }
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #db362a;
 }
 .tab button.active {
-    background-color: #ccc;
+    background-color: #db362a;
 }
 .tabcontent {
     display: block;

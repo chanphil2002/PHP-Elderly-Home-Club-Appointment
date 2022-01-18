@@ -14,6 +14,12 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 
 </head>
+<?php
+if (isset($_SESSION['login'])) {
+    echo $_SESSION['login'];
+    unset($_SESSION['login']);
+}
+?>
 <div class=div style="display:flex">
     <div class="col-sm-4 mb-5">
         <?php

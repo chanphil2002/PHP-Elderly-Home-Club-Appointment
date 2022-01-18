@@ -25,7 +25,7 @@
                 <h1>My Appointments</h1>
                 <div class="tab">
                     <button class="tablinks" onclick="openTab(event, 'pending')" id="defaultOpen">Pending</button>
-                    <button class="tablinks" onclick="openTab(event, 'to be completed')">In Progress</button>
+                    <button class="tablinks" onclick="openTab(event, 'to be completed')">To Be Completed</button>
                     <button class="tablinks" onclick="openTab(event, 'completed')">Completed</button>
                     <button class="tablinks" onclick="openTab(event, 'rejected')">Rejected</button>
                 </div>
@@ -47,13 +47,16 @@
                 <div id="to be completed" class="tabcontent">
                     <div class="a_info">
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                        $result = mysqli_query($conn, "SELECT a.senior_IC, a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, h.handyman_IC, h.fname, h.lname 
+                        FROM tbl_appointment a LEFT JOIN tbl_handyman h ON a.handyman_IC = h.handyman_IC 
+                        WHERE a.status = 'to be completed' AND a.senior_IC = '$senior_IC' ORDER BY a_date ASC, a_time ASC");
+                        // $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                         while ($rows = mysqli_fetch_array($result)) {
                             echo "<h3>Appointment ID - APP" . $rows['ID'] . "</h3>";
                             echo "<h4><i class='fas fa-tools fa-fw'></i>Service Type: " . $rows['service_type'] . "</h4>";
                             echo "<h4><i class='far fa-calendar-alt fa-fw'></i>Schedule Date Booked: " . $rows['a_date'] . "</h4>";
                             echo "<h4><i class='far fa-clock fa-fw'></i>Schedule Time Booked: " . $rows['a_time'] . "</h4>";
-                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman Appointed:" . $rows['handyman_IC'] . "</h5><hr>";
+                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman Appointed: " . $rows['fname'] . " " . $rows['lname'] . "</h5><hr>";
                         }
                         $result->free();
                         ?>
@@ -62,13 +65,16 @@
                 <div id="completed" class="tabcontent">
                     <div class="a_info">
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                        $result = mysqli_query($conn, "SELECT a.senior_IC, a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, h.handyman_IC, h.fname, h.lname 
+                        FROM tbl_appointment a LEFT JOIN tbl_handyman h ON a.handyman_IC = h.handyman_IC 
+                        WHERE a.status = 'completed' AND a.senior_IC = '$senior_IC' ORDER BY a_date ASC, a_time ASC");
+                        // $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'to be completed' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
                         while ($rows = mysqli_fetch_array($result)) {
                             echo "<h3>Appointment ID - APP" . $rows['ID'] . "</h3>";
                             echo "<h4><i class='fas fa-tools fa-fw'></i>Service Type: " . $rows['service_type'] . "</h4>";
                             echo "<h4><i class='far fa-calendar-alt fa-fw'></i>Schedule Date Booked: " . $rows['a_date'] . "</h4>";
                             echo "<h4><i class='far fa-clock fa-fw'></i>Schedule Time Booked: " . $rows['a_time'] . "</h4>";
-                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman Appointed:" . $rows['handyman_IC'] . "</h5><hr>";
+                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman Appointed: " . $rows['fname'] . " " . $rows['lname'] . "</h5><hr>";
                         }
                         $result->free();
                         ?>
@@ -83,7 +89,7 @@
                             echo "<h4><i class='fas fa-tools fa-fw'></i>Service Type: " . $rows['service_type'] . "</h4>";
                             echo "<h4><i class='far fa-calendar-alt fa-fw'></i>Schedule Date Booked: " . $rows['a_date'] . "</h4>";
                             echo "<h4><i class='far fa-clock fa-fw'></i>Schedule Time Booked: " . $rows['a_time'] . "</h4>";
-                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman Appointed:" . $rows['handyman_IC'] . "</h5><hr>";
+                            echo "<h5><i class='far fa-id-badge fa-fw'></i>Handyman is not appointed.</h5><hr>";
                         }
                         $result->free();
                         ?>

@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['handymanlogin'])) {
     $_SESSION['no-login-message'] = "<div class='error'>Please login to access Admin Panel.</div>";
-    header("location:" . SITEURL . "shared/login.php");
+    header("location:" . SITEURL . "index.php");
 }
 ?>
 
@@ -40,7 +40,7 @@ if (!isset($_SESSION['handymanlogin'])) {
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../shared/login.php">Are you sure?</a>
+                            <a class="dropdown-item" href="../index.php">Are you sure?</a>
                         </div>
                     </li>
                 </div>
