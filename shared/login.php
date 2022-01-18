@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
     <div class="login-box" align="center">
         <img class="logo" align="center" src="../image/Handyman.png" alt="Handyman_Logo" width="250px" height="250px">
         <form method="post" action="">
-            <h1>Handyman Login</h1>
+            <h1>Wrenchman Login</h1>
             <div>
                 <?php
                 if (isset($_SESSION['failed-login'])) {
