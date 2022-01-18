@@ -37,8 +37,9 @@
                             echo "<h4> Description : " . $all_rows['description'] . "</h4>";
                             echo "<h4> Date : " . $all_rows['a_date'] . "</h4>";
                             echo "<h4> Time : " . $all_rows['a_time'] . "</h4>";
-                            echo "<h4>" . $all_rows['image'] . "</h4><hr>";
-                        }
+                            echo '<div class="profile">';
+                            echo "<img src='../img_upload/appointment/" .$all_rows['image']."'>";  
+                            echo "</div><hr>";                        }
                         ?>
                     </div>
                 </div>
@@ -54,8 +55,9 @@
                             echo "<h4> Description : " . $tobecompleted_rows['description'] . "</h4>";
                             echo "<h4> Date : " . $tobecompleted_rows['a_date'] . "</h4>";
                             echo "<h4> Time : " . $tobecompleted_rows['a_time'] . "</h4>";
-                            echo "<h4>" . $tobecompleted_rows['image'] . "</h4><hr>";
-                        }
+                            echo '<div class="profile">';
+                            echo "<img src='../img_upload/appointment/" .$tobecompleted_rows['image']."'>";  
+                            echo "</div><hr>";                        }
                         ?>
                     </div>
                 </div>
@@ -71,8 +73,9 @@
                             echo "<h4> Description: " . $completed_rows['description'] . "</h4>";
                             echo "<h4> Date : " . $completed_rows['a_date'] . "</h4>";
                             echo "<h4> Time : " . $completed_rows['a_time'] . "</h4>";
-                            echo "<h4>" . $completed_rows['image'] . "</h4><hr>";
-                        }
+                            echo '<div class="profile">';
+                            echo "<img src='../img_upload/appointment/" .$completed_rows['image']."'>";  
+                            echo "</div><hr>";                        }
                         ?>
                     </div>
                 </div>
@@ -88,8 +91,9 @@
                             echo "<h4> Description : " . $rejected_rows['description'] . "</h4>";
                             echo "<h4> Date : " . $rejected_rows['a_date'] . "</h4>";
                             echo "<h4> Time : " . $rejected_rows['a_time'] . "</h4>";
-                            echo "<h4>" . $rejected_rows['image'] . "</h4><hr>";
-                        }
+                            echo '<div class="profile">';
+                            echo "<img src='../img_upload/appointment/" .$rejected_rows['image']."'>";  
+                            echo "</div><hr>";                             }
                         ?>
                     </div>
                 </div>

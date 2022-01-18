@@ -358,3 +358,7 @@ button:not(.close):hover {
     clear: both;
 }
   
+.profile img{
+    height : 20%;
+    width : 30%;
+}
