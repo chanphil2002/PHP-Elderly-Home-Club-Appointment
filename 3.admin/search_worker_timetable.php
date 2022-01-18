@@ -14,7 +14,7 @@
         .search {
             padding: 12px 0;
             margin: 12px 25%;
-            margin
+            margin-left: 28%;
             display: flex;
             align-items: center;
             box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
@@ -118,7 +118,7 @@
             }
         }
         ?>
-        <div class= "card_body" style="margin: 0 26.5%">
+        <div class= "card_body" style="margin: 0 26.5%; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
             <div class="info">
                 <?php             
                 if (!isset($rows2['fname'])) 
