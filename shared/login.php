@@ -20,11 +20,13 @@
    
             $result = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($result);
+            $row = mysqli_fetch_array($result);
     
             if ($count==1) 
             {
+                $fname = $row['fname'];
                 $_SESSION['login'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-                Welcome Back <strong>$username</strong> !
+                Welcome Back <strong>$fname</strong> !
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                     <span aria-hidden='true'>&times;</span>
                 </button>
@@ -49,10 +51,18 @@
 
             $result = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($result);
+            $row = mysqli_fetch_array($result);
     
             if ($count==1) 
             {
-                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
+                $fname = $row['fname'];
+                $_SESSION['login'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                Welcome Back <strong>$fname</strong> !
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>";
+
                 $_SESSION['handymanlogin'] = $username;
                 unset($_SESSION['seniorlogin']);
                 unset($_SESSION['adminlogin']);
@@ -75,7 +85,13 @@
     
             if ($count==1) 
             {
-                $_SESSION['login'] = "<div class='success'>Login Successful, Welcome $username.</div>";
+                $_SESSION['login'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                Welcome Back, <strong>admin</strong> !
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>";
+
                 $_SESSION['adminlogin'] = $username;
                 unset($_SESSION['seniorlogin']);
                 unset($_SESSION['handymanlogin']);

@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 		if($run_upload === true) {
 			echo "<script>alert('Registration Complete!')</script>";
 			echo "<script> window.location.assign('../shared/login.php'); </script>"; 
-			move_uploaded_file($tmp_name,"upload/$profile_picture");
+			move_uploaded_file($tmp_name,"../img_upload/handyman/$profile_picture");
 		}else {
 			echo "Failed, Try Again";
 		}
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 <div class="page-content">
     <div class="form-v7-content">
         <div class="form-left">
-            <img src="handyman9.jpg" alt="form">
+            <img src="../image/handyman9.jpg" alt="form">
         </div>
         <form class="form-detail" action="#" method="post" id="myform"  enctype="multipart/form-data">
             <div class="form-row">
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
 </div>
 <div class="form-row">
 <label for="gender">GENDER *</label>
-<select name="gender" id="gender" style="height: 25px; margin-top: 3%;" >
+<select name="gender" id="gender" style="height: 25px; margin-top: 3%;" required>
     <option value="">Choose Your Gender *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
     <option value="Male">Male</option>
     <option value="Female">Female</option>

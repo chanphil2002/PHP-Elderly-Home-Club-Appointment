@@ -43,31 +43,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../senior/service_page.php">Timetables<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../3.admin/search_worker_timetable.php">Timetables<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../admin/3.admin/ServiceStatus.php">Service Status</a>
+                    <a class="nav-link " href="../3.admin/ServiceStatus.php">Service Status</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../senior/request_servicepage.php">Incoming Requests</a>
+                    <a class="nav-link " href="../request_servicepage.php">Incoming Requests</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage Account
+                    Manage
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item inactiveLink" href="#">Register Account for:</a>
+                        <a class="dropdown-item inactiveLink" href="#">Create:</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Senior</a>
-                        <a class="dropdown-item" href="#">Handyman</a>
+                        <a class="dropdown-item" href="../3.admin/Senior Registration Form.php">New Senior Account</a>
+                        <a class="dropdown-item" href="../3.admin/Handyman Registration Form.php">New Handyman Account</a>
+                        <a class="dropdown-item" href="../3.admin/Service Registration Form.php">New Service Type</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item inactiveLink" href="#">Edit Account of:</a>
+                        <a class="dropdown-item inactiveLink" href="#">Edit:</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Senior</a>
-                        <a class="dropdown-item" href="#">Handyman</a>
+                        <a class="dropdown-item" href="#">Senior Account</a>
+                        <a class="dropdown-item" href="#">Handyman Account</a>
+                        <a class="dropdown-item" href="#">Service Type</a>
 
                     </div>
                 </li>
+                
                 <div class="logout">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

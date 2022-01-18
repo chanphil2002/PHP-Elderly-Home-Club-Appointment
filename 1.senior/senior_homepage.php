@@ -1,4 +1,18 @@
-<?php include('../shared/senior_navigation_bar.php'); ?>
+<?php include('../shared/senior_navigation_bar.php'); 
+
+    $query_senior = "SELECT * FROM `tbl_senior`";
+    $query_handyman = "SELECT * FROM `tbl_handyman`";
+    $query_service = "SELECT * FROM `tbl_service`";
+    $query_appointment = "SELECT * FROM `tbl_appointment`";
+    $result1 = mysqli_query($conn, $query_senior);
+    $result2 = mysqli_query($conn, $query_handyman);
+    $result3 = mysqli_query($conn, $query_service);
+    $result4 = mysqli_query($conn, $query_appointment);
+    $senior_count = mysqli_num_rows($result1);
+    $handyman_count = mysqli_num_rows($result2);
+    $service_count = mysqli_num_rows($result3);
+    $appointment_count = mysqli_num_rows($result4);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +72,43 @@
         <button onclick="location.href='service_page.php'" type="button">View Available Services</button>
 
     </div>
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="text-center title">
+          <h3>What Handyman is all about</h3>
+          <p>Handyman is a non-profit organization that provides free home repair services to all seniors in the Elderly Home Club. 
+            Right now we have</p>
+        </div>
+
+        <div class="row counters position-relative">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span class="purecounter"><?php echo $senior_count;?></span>
+            <p>Registered Seniors</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span class="purecounter"><?php echo $handyman_count;?></span>
+            <p>Available Handyman</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span class="purecounter"><?php echo $service_count;?></span>
+            <p>Available Service</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span class="purecounter"><?php echo $appointment_count;?></span>
+            <p>Total Appointments Booked</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
 </body>
 
 </html>
