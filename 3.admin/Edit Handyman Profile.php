@@ -30,7 +30,7 @@ $rows2 = mysqli_fetch_array($result2);
 
 <head>
     <meta charset="utf-8">
-    <title>Handyman Registration Page</title>
+    <title>Edit Handyman Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Edit.css">

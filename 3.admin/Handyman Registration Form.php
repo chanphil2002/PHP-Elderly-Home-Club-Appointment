@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 		$run_upload = mysqli_query($conn, $upload);
 		if ($run_upload === true) {
 			echo "<script>alert('Registration Complete!')</script>";
-			echo "<script> window.location.assign('../shared/login.php'); </script>";
+			echo "<script> window.location.assign('../index.php'); </script>";
 			move_uploaded_file($tmp_name, "../img_upload/handyman/$profile_picture");
 		} else {
 			echo "Failed, Try Again";
