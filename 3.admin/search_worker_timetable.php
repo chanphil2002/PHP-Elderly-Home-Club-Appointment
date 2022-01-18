@@ -51,7 +51,7 @@
             }
         }
         $query = 
-        "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, s.senior_IC, s.fname, s.lname
+        "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, s.senior_IC, s.fname, s.lname, s.address
         FROM tbl_appointment a LEFT JOIN tbl_senior s 
         ON a.senior_IC = s.senior_IC
         WHERE a.status = 'to be completed' AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
@@ -73,7 +73,9 @@
                 <h3>Name of Tenant</h3>
                 <p>' . $value['fname'] .' '. $value['lname'] .'<p>
                 <h3> Type of Repair </h3>
-                <p>' . $value['service_type'] . '</p>                    
+                <p>' . $value['service_type'] . '</p>
+                <h3> Address </h3>
+                <p>' . $value['address'] . '</p>                    
                 <h3>Date</h3>
                 <p>' . $value['a_date'] .'<p>
                 <h3>Time</h3>
