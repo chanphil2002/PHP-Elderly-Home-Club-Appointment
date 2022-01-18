@@ -14,6 +14,7 @@
     padding: 30px 25px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    width: 50%;
 }
 .info h1{
     margin-bottom: 10px;
@@ -24,7 +25,6 @@
     text-transform: uppercase;
     letter-spacing: 5px;
     text-align: center;
-    width: 550px;
 }
 .info_data{
     display: flex;
@@ -58,50 +58,7 @@
     height: 400px;
     margin: 0 auto;
 }
-/* Toggle Switch For Notification */
-.switch {
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;    
-    text-align: right;
-    width: 60px;
-    height: 34px;
-}
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-}  
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-}
-  
-input:checked + .slider {
-    background-color: #2196F3;
-}  
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}  
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
+
 /* Timetable */
 table {
     border-collapse: collapse;
@@ -234,4 +191,15 @@ button:not(.close):hover {
     letter-spacing: 1px;
     margin-bottom: 7px;
     width: auto;    
+}
+
+.for_dropdown {
+    position: relative;
+    text-align: left;
+    margin: 10px;   
+}
+.week_dropdown {
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
 }
