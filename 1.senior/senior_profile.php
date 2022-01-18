@@ -19,8 +19,6 @@
         include '../shared/sidebar.php';
         //include php variable inside mysql
         $stmt = $conn->prepare("SELECT senior_IC, fname, lname, gender, address, phone_number, profile_picture FROM tbl_senior WHERE senior_IC = ?");
-        $stmt->bind_param("s", $senior_IC);
-        $stmt = $conn->prepare("SELECT senior_IC, fname, lname, gender, address, phone_number FROM tbl_senior WHERE senior_IC = ?");
         $stmt->bind_param("s", $_SESSION['seniorlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
