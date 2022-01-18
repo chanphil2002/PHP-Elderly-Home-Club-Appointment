@@ -56,7 +56,10 @@
                     <div class="responsive">
                     <div class="gImg">
                         <img src="../img_upload/appointment/' . $value['image'] . '"alt = "Appointment Image">
-                    </div>
+                    </div><br>
+                    <form action="" method="POST">
+                    <button type="submit" class="btn btn-success" name="completed">Completed</button>
+                    </form>
                     </div>
 
                     <div class="clearfix"></div>
@@ -101,6 +104,16 @@
                         echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
                         popup($value, $days.$time);
                     }
+                }
+            }
+
+            if(isset($_REQUEST['completed'])){
+                $sql = "UPDATE tbl_appointment SET status='Completed' WHERE ID = {$rows[0]['ID']}";
+                if ($conn->query($sql) === TRUE) {
+                    echo "<script>alert ('Record updated successfully')</script>";
+                    echo "<script> window.location.assign('handyman_timetable.php'); </script>";
+                } else {
+                    echo "<script>alert ('Failed')</script>";
                 }
             }
         ?>        
