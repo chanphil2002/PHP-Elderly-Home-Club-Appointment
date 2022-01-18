@@ -118,7 +118,7 @@
             evt.currentTarget.className += " active";
         }
 
-        document.getElementById("defaultOpen").click();        
+        document.getElementById("defaultOpen").click();
     </script>
 </body>
 

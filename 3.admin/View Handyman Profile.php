@@ -30,7 +30,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     </form>
     <?php
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $handyman_IC = "111";
+    $handyman_IC = "not available";
     if ($handyman_IC) {
         if (isset($_POST['handyman_IC'])) {
             $handyman_IC = $_POST['handyman_IC'];
@@ -50,13 +50,13 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     <div class="card_body">
         <div class="info">
             <div class="profile">
-                <img src="img_upload/handyman/<?php
-                                                if (!$rows2) {
-                                                    echo 'profile-picture.png';
-                                                } else {
-                                                    echo $rows2['profile_picture'];
-                                                }
-                                                ?>" alt="Profile Image">
+                <img src="../img_upload/handyman/<?php
+                                                    if (!$rows2) {
+                                                        echo 'profile_default.png';
+                                                    } else {
+                                                        echo $rows2['profile_picture'];
+                                                    }
+                                                    ?>" alt="Profile Image">
             </div>
             <?php
             if (!isset($rows2['fname'])) {

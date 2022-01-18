@@ -18,7 +18,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="Edit.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     </form>
     <?php
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $senior_IC = "111";
+    $senior_IC = "not available";
     if ($senior_IC) {
         if (isset($_POST['senior_IC'])) {
             $senior_IC = $_POST['senior_IC'];
@@ -50,13 +50,13 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     <div class="card_body">
         <div class="info">
             <div class="profile">
-                <img src="img_upload/senior/<?php
-                                            if (!$rows2) {
-                                                echo 'profile-picture.png';
-                                            } else {
-                                                echo $rows2['profile_picture'];
-                                            }
-                                            ?>" alt="Profile Image">
+                <img src="../img_upload/senior/<?php
+                                                if (!$rows2) {
+                                                    echo 'profile_default.png';
+                                                } else {
+                                                    echo $rows2['profile_picture'];
+                                                }
+                                                ?>" alt="Profile Image">
             </div>
             <?php
             if (!isset($rows2['fname'])) {
