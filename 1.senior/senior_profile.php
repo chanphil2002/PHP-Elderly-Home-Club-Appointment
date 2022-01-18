@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="wrapper">        
+    <div class="wrapper">
         <?php
         $page_id = '1';
         include '../shared/sidebar.php';
@@ -24,9 +24,9 @@
         $stmt->bind_param("s", $_SESSION['seniorlogin']);
         $stmt->execute();
         $result = $stmt->get_result();
-        $row = mysqli_fetch_array($result);        
-        ?> 
-        <div class= "card_body">
+        $row = mysqli_fetch_array($result);
+        ?>
+        <div class="card_body">
             <div class="info">
                 <h1>My Profile</h1>
                 <div class="info_data">
@@ -42,19 +42,20 @@
                         <h3>Last Name</h3>
                         <p><?php echo $row['lname'] ?></p>
                         <h3>Identity Card No.</h3>
-                        <p><?php echo $row['senior_IC'] ?></p>                        
+                        <p><?php echo $row['senior_IC'] ?></p>
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
     </div>
-    
+
     <script>
         var sidebar = document.querySelector(".sidebar");
-        sidebar.addEventListener("click", function(){
-        document.querySelector("body").classList.toggle("active");
-    })
+        sidebar.addEventListener("click", function() {
+            document.querySelector("body").classList.toggle("active");
+        })
     </script>
-    
+
 </body>
+
 </html>
