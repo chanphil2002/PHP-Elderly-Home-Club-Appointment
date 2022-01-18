@@ -25,7 +25,7 @@
                 <h1>My Appointments</h1>
                 <div class="tab">
                     <button class="tablinks" onclick="openTab(event, 'pending')" id="defaultOpen">Pending</button>
-                    <button class="tablinks" onclick="openTab(event, 'to be completed')">In Progress</button>
+                    <button class="tablinks" onclick="openTab(event, 'to be completed')">To Be Completed</button>
                     <button class="tablinks" onclick="openTab(event, 'completed')">Completed</button>
                     <button class="tablinks" onclick="openTab(event, 'rejected')">Rejected</button>
                 </div>
@@ -112,7 +112,7 @@
             evt.currentTarget.className += " active";
         }
 
-        document.getElementById("defaultOpen").click();
+        document.getElementById("defaultOpen").click();        
     </script>
 </body>
 
