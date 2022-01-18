@@ -22,9 +22,6 @@
             background: #eaeaea;
             border-radius: 2px;
         }
-
-
-
         .search>input {
             flex: 1;
             width:100%;
