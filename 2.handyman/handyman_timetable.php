@@ -58,7 +58,8 @@
                         <img src="../img_upload/appointment/' . $value['image'] . '"alt = "Appointment Image">
                     </div><br>
                     <form action="" method="POST">
-                    <button type="submit" class="btn btn-success" name="completed">Completed</button>
+                    <button type="submit" class="btn btn-success" 
+                    name="completed">Completed</button>
                     </form>
                     </div>
 
@@ -126,9 +127,9 @@
                 <div class="for_dropdown">                    
                     <form method="post" action="" name="theForm" id="theForm">                        
                             <select form="theForm" name="selectedWeek" id="week" onchange='this.form.submit()'>
-                                <li><option value="thisweek"
+                                <option value="thisweek"
                                 <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'thisweek') 
-                                echo 'selected= "selected"'; ?>></li>
+                                echo 'selected= "selected"'; ?>>
                                 <?php echo date("dS F Y", strtotime('monday this week')); ?></option>
                                 <option value="nextweek"
                                 <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'nextweek') 
