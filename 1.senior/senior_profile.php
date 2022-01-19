@@ -41,6 +41,8 @@
                         <p><?php echo $row['lname'] ?></p>
                         <h3>Identity Card No.</h3>
                         <p><?php echo $row['senior_IC'] ?></p>
+                        <h3>Phone Number</h3>
+                        <p><?php echo $row['phone_number'] ?></p>
                     </div>
                 </div>
             </div>

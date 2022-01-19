@@ -25,7 +25,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     <h2 style="margin-top: 3%;">Modify Service Type Page</h2><br>
     <form class="search" method="post">
-        <input type="text" autocomplete="off" placeholder="Search By Senior ID" name="service_type" />
+        <input type="text" autocomplete="off" placeholder="Search By Service Type Name" name="service_type" />
         <input type="submit" style="position: absolute; left: -9999px;" />
     </form>
     <?php
