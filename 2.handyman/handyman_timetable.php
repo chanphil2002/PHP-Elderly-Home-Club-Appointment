@@ -126,31 +126,31 @@
                 } ?>'s Timetable</h1>
                 <div class="for_dropdown">                    
                     <form method="post" action="" name="theForm" id="theForm">                        
-                            <select form="theForm" name="selectedWeek" id="week" onchange='this.form.submit()'>
-                                <option value="thisweek"
-                                <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'thisweek') 
-                                echo 'selected= "selected"'; ?>>
-                                <?php echo date("dS F Y", strtotime('monday this week')); ?></option>
-                                <option value="nextweek"
-                                <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'nextweek') 
-                                echo 'selected= "selected"'; ?>>
-                                <?php echo date("dS F Y", strtotime('monday next week'));?></option>
-                                <option value="nextweekplus1"
-                                <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'nextweekplus1') 
-                                echo 'selected= "selected"'; ?>>
-                                <?php echo date("dS F Y", strtotime('monday next week +1 week'));?></option>
-                            </select>
-                            <?php 
-                            if(isset($_POST['selectedWeek']))
-                            {
-                                $requested_week = $_POST['selectedWeek'];
-                            }
-                            else
-                            {
-                                $requested_week = 'thisweek';
-                            }
-                            ?>
-                    </form>                   
+                        <select form="theForm" name="selectedWeek" id="week" onchange='this.form.submit()'>
+                            <option value="thisweek"
+                            <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'thisweek') 
+                            echo 'selected= "selected"'; ?>>
+                            <?php echo date("dS F Y", strtotime('monday this week')); ?></option>
+                            <option value="nextweek"
+                            <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'nextweek') 
+                            echo 'selected= "selected"'; ?>>
+                            <?php echo date("dS F Y", strtotime('monday next week'));?></option>
+                            <option value="nextweekplus1"
+                            <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'nextweekplus1') 
+                            echo 'selected= "selected"'; ?>>
+                            <?php echo date("dS F Y", strtotime('monday next week +1 week'));?></option>
+                        </select>
+                    </form>
+                    <?php 
+                    if(isset($_POST['selectedWeek']))
+                    {
+                        $requested_week = $_POST['selectedWeek'];
+                    }
+                    else
+                    {
+                        $requested_week = 'thisweek';
+                    }
+                    ?>                  
                 </div>                   
                 <table>
                     <tr>
