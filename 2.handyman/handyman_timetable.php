@@ -23,7 +23,7 @@
             "SELECT a.ID, a.service_type, a.a_time, a.a_date, a.description, a.image, s.senior_IC, s.fname, s.lname, s.address
             FROM tbl_appointment a LEFT JOIN tbl_senior s 
             ON a.senior_IC = s.senior_IC
-            WHERE a.status = 'to be completed' AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
+            WHERE (a.status = 'to be completed' OR a.status = 'completed') AND a.handyman_IC = '$handyman_IC' ORDER BY a_date ASC, a_time ASC";
             $result = $conn->query($query);
             $rows = $result->fetch_all(MYSQLI_ASSOC);
             $sql = "SELECT fname, lname FROM tbl_handyman WHERE handyman_IC = '$handyman_IC'";
