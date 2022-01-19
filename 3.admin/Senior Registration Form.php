@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 						<h2 class="text-1">Senior Registration Page</h2>
 					</strong>
 					<label for="fname">FIRST NAME *</label>
-					<input type="text" name="fname" id="fname" class="input-text">
+					<input type="text" name="fname" id="fname" class="input-text" required>
 				</div>
 				<div class="form-row">
 					<label for="lname">LAST NAME *</label>
@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
 				</div>
 				<div class="form-row">
 					<br><br><label for="profile_picture">Upload Handyman's Image *</label><br><br>
-					<input type="file" name="profile_picture" id="profile_picture" accept="image/*">
+					<input type="file" name="profile_picture" id="profile_picture" accept="image/*" required>
 					<br>
 					<br>
 				</div>
