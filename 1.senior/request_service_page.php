@@ -103,13 +103,13 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="autofill-box col-md-6 mb-3">
                     <label for="phone">Phone Number</label>
-                    <input class="form-control" name="phone" type="text" placeholder="Readonly input here…" readonly value="010-2162592">
+                    <input class="form-control" name="phone" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['phone_number'] ?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="autofill-box col-md-12 mb-3">
                     <label for="address">Address</label>
-                    <textarea cols="30" rows="3" class="form-control" name="address" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['address'] ?>">
+                    <input class="form-control" name="address" type="text" placeholder="Readonly input here…" readonly value="<?php echo $row['address'] ?>">
                     </textarea>
                 </div>
             </div>
