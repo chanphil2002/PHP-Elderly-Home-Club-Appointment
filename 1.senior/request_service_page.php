@@ -24,9 +24,9 @@ if (isset($_POST['submit'])) {
     $req_image = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
 
-    if ($count_row['count(*)'] < 3) {
+    if ($count_row['count(*)'] < 4) {
         $sql = "INSERT INTO `tbl_appointment`(`service_type`, `senior_IC`, `a_time`, `a_date`, `status`, `description`, `image`,`time_stamp`) VALUES
-        ('$service_type', '$IC','$time','$date','pending','$service_description','$req_image',CURDATE())";
+        ('$service_type', '$IC','$time','$date','Pending','$service_description','$req_image',CURDATE())";
 
         $query = mysqli_query($conn, $sql);
 

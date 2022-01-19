@@ -32,7 +32,7 @@
                 <div id="pending" class="tabcontent">
                     <div class="a_info">
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'pending' AND senior_IC = '$senior_IC' GROUP BY a_time ORDER BY a_date");
+                        $result = mysqli_query($conn, "SELECT * FROM `tbl_appointment` WHERE status = 'pending' AND senior_IC = '$senior_IC' ORDER BY 'ID'");
                         while ($rows = mysqli_fetch_array($result)) {
                             echo "<h3>Appointment ID - APP" . $rows['ID'] . "</h3>";
                             echo "<h4><i class='fas fa-tools fa-fw'></i>Service Type: " . $rows['service_type'] . "</h4>";
