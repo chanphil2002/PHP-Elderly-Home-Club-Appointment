@@ -68,33 +68,27 @@ if (isset($_REQUEST['Save'])) {
                 <h5 class="text-center">Edit Senior Profile</h5>
                 <div class="form-group">
                     <label for="IC">Senior IC</label>
-                    <input type="text" class="form-control" id="IC" name="IC" value="
-                    <?php if (isset($rows2['senior_IC'])) echo $rows2['senior_IC']; ?>" readonly>
+                    <input type="text" class="form-control" id="IC" name="IC" value="<?php if (isset($rows2['senior_IC'])) echo $rows2['senior_IC']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" value="
-                    <?php if (isset($rows2['fname'])) echo $rows2['fname']; ?>">
+                    <input type="text" class="form-control" id="firstname" name="firstname" value="<?php if (isset($rows2['fname'])) echo $rows2['fname']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" value="
-                    <?php if (isset($rows2['lname'])) echo $rows2['lname']; ?>">
+                    <input type="text" class="form-control" id="lastname" name="lastname" value="<?php if (isset($rows2['lname'])) echo $rows2['lname']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <input type="text" class="form-control" id="gdr" name="gdr" value="
-                    <?php if (isset($rows2['gender'])) echo $rows2['gender']; ?>">
+                    <input type="text" class="form-control" id="gdr" name="gdr" value="<?php if (isset($rows2['gender'])) echo $rows2['gender']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="addr" name="addr" value="
-                    <?php if (isset($rows2['address'])) echo $rows2['address']; ?>">
+                    <input type="text" class="form-control" id="addr" name="addr" value="<?php if (isset($rows2['address'])) echo $rows2['address']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="number">Phone Number</label>
-                    <input type="text" class="form-control" id="num" name="num" value="
-                    <?php if (isset($rows2['phone_number'])) echo $rows2['phone_number']; ?>">
+                    <input type="text" class="form-control" id="num" name="num" value="<?php if (isset($rows2['phone_number'])) echo $rows2['phone_number']; ?>">
                 </div>
                 <div class="float-right">
                     <button type="submit" class="btn btn-success" name="Save">Save</button>
