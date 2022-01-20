@@ -115,14 +115,21 @@ button:not(.close):hover {
     background: #fff;
     border-radius: 5px;
     width: 60%;
+    height: 75%;
     position: relative;
     transition: all 5s ease-in-out;
+    overflow: auto;    
 }
   
 .popup h2 {
     margin-top: 0;
     color: #333;
     font-family: 'Roboto', sans-serif;
+}
+.popup p {
+    display: block;
+    width: 320px;
+    overflow-wrap: break-word;
 }
 .popup .close {
     position: absolute;
