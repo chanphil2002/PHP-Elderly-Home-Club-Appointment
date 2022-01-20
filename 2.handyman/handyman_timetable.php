@@ -58,8 +58,7 @@
                         <img src="../img_upload/appointment/' . $value['image'] . '"alt = "Appointment Image">
                     </div><br>
                     <form action="" method="POST">
-                    <button type="submit" class="btn btn-success" 
-                    name="completed">Completed</button>
+                    <button type="submit" class="btn btn-success" name="completed">Completed</button>
                     </form>
                     </div>
 
