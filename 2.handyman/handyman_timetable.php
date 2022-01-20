@@ -31,7 +31,7 @@
 
             //popup for appointment details
             function popup($value, $popup_id)
-            {
+            {   
                 echo'<div id="'. $popup_id .'" class="overlay">
                     <div class="popup">
                     <h2>Appointment Details(' .$value['ID'] . ')</h2>
@@ -58,7 +58,8 @@
                         <img src="../img_upload/appointment/' . $value['image'] . '"alt = "Appointment Image">
                     </div><br>
                     <form action="" method="POST">
-                    <button type="submit" class="btn btn-success" name="completed">Completed</button>
+                    <button type="submit" class="btn btn-success" 
+                    name="completed">Completed</button>
                     </form>
                     </div>
 
@@ -102,20 +103,27 @@
                     if (($value['a_time'] == $time) and (date('l', strtotime($value['a_date'])) == $days))
                     {
                         echo '<a class="button" href=#'.$days.$time.'>Occupied</a>';
-                        popup($value, $days.$time);
+                        popup($value, $days.$time);                        
+                        $_SESSION['ID'] = $value['ID'];
+                        $aID = $_SESSION['ID'];
                     }
                 }
+                if(isset($_REQUEST["completed"]))
+                   {
+                    $_SESSION['ID'] = $value['ID'];                    
+                    }
             }
-
-            if(isset($_REQUEST['completed'])){
-                $sql = "UPDATE tbl_appointment SET status='Completed' WHERE ID = {$rows[0]['ID']}";
-                if ($conn->query($sql) === TRUE) {
-                    echo "<script>alert ('Record updated successfully')</script>";
-                    echo "<script> window.location.assign('handyman_timetable.php'); </script>";
-                } else {
-                    echo "<script>alert ('Failed')</script>";
-                }
-            }
+            if(isset($_REQUEST["completed"]))
+            {
+             $aID = $_SESSION['ID'];
+             $sql = "UPDATE tbl_appointment SET status='Completed' WHERE ID = $aID";
+             if ($conn->query($sql) === TRUE) {
+                 echo "<script>alert ('Record updated successfully')</script>";
+                 echo "<script> window.location.assign('handyman_timetable.php'); </script>";
+             } else {
+                 echo "<script>alert ('Failed')</script>";
+             }
+         }        
         ?>        
         <div class= "card_body">        
             <div class="info">
@@ -126,7 +134,7 @@
                 <div class="for_dropdown">                    
                     <form method="post" action="" name="theForm" id="theForm">                        
                         <select form="theForm" name="selectedWeek" id="week" onchange='this.form.submit()'>
-                            <option value="thisweek"
+                            <li><option value="thisweek"
                             <?php if(isset($_POST['selectedWeek']) && $_POST['selectedWeek'] == 'thisweek') 
                             echo 'selected= "selected"'; ?>>
                             <?php echo date("dS F Y", strtotime('monday this week')); ?></option>
@@ -139,17 +147,17 @@
                             echo 'selected= "selected"'; ?>>
                             <?php echo date("dS F Y", strtotime('monday next week +1 week'));?></option>
                         </select>
-                    </form>
-                    <?php 
-                    if(isset($_POST['selectedWeek']))
-                    {
-                        $requested_week = $_POST['selectedWeek'];
-                    }
-                    else
-                    {
-                        $requested_week = 'thisweek';
-                    }
-                    ?>                  
+                    </form> 
+                        <?php 
+                        if(isset($_POST['selectedWeek']))
+                        {
+                            $requested_week = $_POST['selectedWeek'];
+                        }
+                        else
+                        {
+                            $requested_week = 'thisweek';
+                        }
+                        ?>          
                 </div>                   
                 <table>
                     <tr>
