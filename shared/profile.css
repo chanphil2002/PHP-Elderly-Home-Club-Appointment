@@ -81,6 +81,9 @@ td, th {
     cursor: pointer;
     transition: all 0.3s ease-out;
 }
+.button:hover{
+    text-decoration: none;
+}
 button:not(.close):hover {
     background: #cc3636;
     color: white;

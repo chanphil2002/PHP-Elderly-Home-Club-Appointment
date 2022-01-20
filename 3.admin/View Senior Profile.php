@@ -102,10 +102,12 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                         echo '<form action="" method="POST">';
                         echo '<input type="submit" class="btn btn-danger btn-lg active float-right"  name="delete" value="Delete" id="delete">';
                         echo '</form>';
-                        echo '<a href="Edit Senior Profile.php" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        echo '<a href="Edit Senior Profile.php" class="btn btn-secondary btn-lg active float-right mr-3" 
+                        role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     } else {
                         echo '<a href="#" class="btn btn-danger btn-lg active float-right" role="button" aria-pressed="true">Delete</a>';
-                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right mr-3" 
+                        role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     }
                     ?>
                 </div>
