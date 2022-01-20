@@ -119,10 +119,10 @@ if (isset($_SESSION['login'])) {
                 <select name="handymanIC" id="handymanIC" class="form-control"><br><br>
                     <option disabled selected>-- Select Handyman IC --</option>
                     <?php
-                    $handyman = mysqli_query($conn, "SELECT handyman_IC From tbl_handyman");  // Use select query here 
+                    $handyman = mysqli_query($conn, "SELECT handyman_IC, fname, lname From tbl_handyman");  // Use select query here 
 
                     while ($data = mysqli_fetch_array($handyman)) {
-                        echo "<option value='" . $data['handyman_IC'] . "'>" . $data['handyman_IC'] . "</option>";  // displaying data in option menu
+                        echo "<option value='" . $data['handyman_IC'] . "'>" . $data['handyman_IC'] . "&nbsp&nbsp&nbsp&nbsp" . $data['fname']. " " . $data['lname'] .  "</option>";
                     }
                     ?>
                 </select>

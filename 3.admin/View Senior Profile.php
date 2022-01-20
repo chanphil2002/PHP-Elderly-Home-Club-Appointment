@@ -43,6 +43,15 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $sql = "SELECT fname, lname, gender, senior_IC, phone_number, address, profile_picture FROM tbl_senior WHERE senior_IC = '$senior_IC'";
     $result2 = $conn->query($sql);
     $rows2 = mysqli_fetch_array($result2);
+
+    if (isset($_REQUEST['delete'])) {
+        $senior_IC = $_SESSION['snrman'];
+        $del = "DELETE FROM tbl_senior WHERE senior_IC = '$senior_IC'";
+        if ($conn->query($del)) {
+            echo "<script>alert('Senior Record Deleted')</script>";
+            echo "<script> window.location.assign('View Senior Profile.php'); </script>";
+        }        
+    }
     ?>
     <br><br>
 
@@ -90,13 +99,15 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     <?php
                     if (isset($_POST['senior_IC'])) {
                         $_SESSION['snrman'] = $_POST['senior_IC'];
-                        echo '<a href="Edit Senior Profile.php" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        echo '<form action="" method="POST">';
+                        echo '<input type="submit" class="btn btn-danger btn-lg active float-right"  name="delete" value="Delete" id="delete">';
+                        echo '</form>';
+                        echo '<a href="Edit Senior Profile.php" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     } else {
-                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        echo '<a href="#" class="btn btn-danger btn-lg active float-right" role="button" aria-pressed="true">Delete</a>';
+                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     }
                     ?>
-                    <!-- <a href="Edit Handyman Profile.php" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a> -->
-                    <!-- <input type="submit" name="submit" class="btn btn-secondary float-right" value="Edit"> -->
                 </div>
                 <div class="data">
                     <h3>Last Name</h3>
