@@ -109,7 +109,7 @@ button:not(.close):hover {
  
 /* Popup */
 .popup {
-    margin: 200px auto;
+    margin: 140px auto;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
