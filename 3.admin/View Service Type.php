@@ -12,7 +12,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     <?php
 
     if (isset($_POST['service_type'])) {
-        $_SESSION['service_type'] = $_POST['service_type'];
+        $_SESSION['serv_type'] = $_POST['service_type'];
     }
     ?>
     <meta charset="utf-8">
@@ -43,6 +43,15 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $sql = "SELECT service_type, description, image FROM tbl_service WHERE service_type = '$service_type' ";
     $result2 = $conn->query($sql);
     $rows2 = mysqli_fetch_array($result2);
+    
+    if (isset($_REQUEST['delete'])) {
+        $service_type = $_SESSION['serv_type'];
+        $del = "DELETE FROM tbl_service WHERE service_type = '$service_type'";
+        if ($conn->query($del)) {
+            echo "<script>alert('Service Type Record Deleted')</script>";
+            echo "<script> window.location.assign('View Service Type.php'); </script>";
+        }        
+    }
     ?>
     <br><br>
 
@@ -76,10 +85,14 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                         } ?></p>
                     <?php
                     if (isset($_POST['service_type'])) {
-                        $_SESSION['service_type'] = $_POST['service_type'];
-                        echo '<a href="Edit Service Type.php" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        $_SESSION['serv_type'] = $_POST['service_type'];
+                        echo '<form action="" method="POST">';
+                        echo '<input type="submit" class="btn btn-danger btn-lg active float-right"  name="delete" value="Delete" id="delete">';
+                        echo '</form>';
+                        echo '<a href="Edit Service Type.php" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     } else {
-                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
+                        echo '<a href="#" class="btn btn-danger btn-lg active float-right" role="button" aria-pressed="true">Delete</a>';
+                        echo '<a href="#" class="btn btn-secondary btn-lg active float-right mr-3" role="button" aria-pressed="true" name="edit" id="edit">Edit</a>';
                     }
                     ?>
                     <!-- <a href="Edit Handyman Profile.php" class="btn btn-secondary btn-lg active float-right" role="button" aria-pressed="true" name="edit" id="edit">Edit</a> -->
